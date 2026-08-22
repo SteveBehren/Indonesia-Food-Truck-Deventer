@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<title>Indonesia Food Truck Deventer</title>
+<meta name="description" content="Authentieke Indonesische keuken · Elke maandag op het Borgele Winkelcentrum, Deventer">
+<meta property="og:title" content="Indonesia Food Truck Deventer">
+<meta property="og:description" content="Authentieke Indonesische keuken · Elke maandag op het Borgele Winkelcentrum, Deventer">
+<meta property="og:image" content="images/food-truck-icon.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Indonesia Food Truck Deventer">
+<meta name="twitter:description" content="Authentieke Indonesische keuken · Elke maandag op het Borgele Winkelcentrum, Deventer">
+<meta name="twitter:image" content="images/food-truck-icon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;1,400;1,600;1,700&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      --bg: #FAF5EC;
+      --bg-alt: #EEE5D4;
+      --bg-card: #FFFFFF;
+      --text: #1C110A;
+      --text-muted: #7A6252;
+      --accent: #C4622D;
+      --border: rgba(28,17,10,0.10);
+      --nav-h: 64px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    body.dark {
+      --bg: #0F0905;
+      --bg-alt: #1A110A;
+      --bg-card: #1E160E;
+      --text: #F0E8DC;
+      --text-muted: #9C7E68;
+      --accent: #D4753A;
+      --border: rgba(240,232,220,0.08);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; }
+    section { scroll-margin-top: 64px; }
+    .fav-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .menu-grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+    .menu-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+    .tabs-scroll { display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; }
+    .tabs-scroll::-webkit-scrollbar { display: none; }
+    @media (max-width: 1024px) { .menu-grid-3 { grid-template-columns: repeat(2,1fr); } .contact-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 700px) { .fav-grid { grid-template-columns: repeat(2,1fr); gap: 12px; } .menu-grid-2 { grid-template-columns: 1fr; } .menu-grid-3 { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .nav-links { display: none !important; } .hamburger { display: flex !important; } }
+    @media (min-width: 769px) { .hamburger { display: none !important; } .mobile-drawer { display: none !important; } }
+    @keyframes heroUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    a, button { transition: color 0.2s, background-color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s, opacity 0.2s; }
+    .nav-link:hover { color: var(--accent) !important; }
+    .icon-btn:hover { transform: scale(1.1); border-color: var(--accent); }
+    .icon-btn:active { transform: scale(0.94); }
+    .cta-solid:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 10px 24px rgba(196,98,45,0.35); }
+    .cta-outline:hover { transform: translateY(-2px) scale(1.03); border-color: rgba(240,232,220,0.7) !important; background: rgba(240,232,220,0.06); }
+    .cta-solid:active, .cta-outline:active { transform: translateY(0) scale(0.98); }
+    .mute-btn:hover { transform: scale(1.12); background: rgba(10,6,3,0.75) !important; }
+    .mute-btn:active { transform: scale(0.94); }
+    .tab-btn:hover { transform: translateY(-2px); border-color: var(--accent) !important; color: var(--accent) !important; }
+    .tab-btn-active:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    .info-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.10); }
+    .whatsapp-btn:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 10px 22px rgba(0,0,0,0.18); }
+    .social-link:hover { transform: translateX(4px); color: var(--accent) !important; }
+    .footer-link:hover { color: var(--accent) !important; }
+    .fav-item { display: block; }
+    .fav-item .fav-img-wrap { overflow: hidden; }
+    .fav-item .fav-img-wrap img { transition: transform 0.45s ease; }
+    .fav-item:hover .fav-img-wrap img { transform: scale(1.08); }
+    .fav-item:hover p { color: var(--accent); }
+    .fav-item p { transition: color 0.2s; }
+    .brand-logo:hover { transform: scale(1.05); }
+    .brand-logo { transition: transform 0.2s; }
+    .theme-icon { display: inline-block; transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1); }
+    .icon-btn:hover .theme-icon { transform: rotate(20deg) scale(1.1); }
+    @media (min-width: 769px) { .mobile-drawer { display: none !important; } }
+  </style>
+  <script>
+    (function(){
+      var d = localStorage.getItem('ift-dark');
+      if (d === 'true') {
+        document.body.classList.add('dark');
+      }
+    })();
+  </script>
+</helmet>
+
+<!-- NAV -->
+<nav style="position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);background:var(--bg);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 clamp(16px,4vw,56px);gap:24px;transition:background 0.3s,border-color 0.3s;">
+  <a href="#home" onClick="{{ navHome }}" class="brand-logo" style="display:flex;align-items:center;flex-shrink:0;"><img src="images/food-truck-icon.png" alt="Indonesia Food Truck" style="height:40px;width:auto;object-fit:contain;" /></a>
+  <div class="nav-links" style="display:flex;gap:28px;flex:1;justify-content:center;">
+    <a href="#favorieten" onClick="{{ navFavorieten }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Favorieten</a>
+    <a href="#menu" onClick="{{ navMenu }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Menu</a>
+    <a href="#over-ons" onClick="{{ navOverOns }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Over Ons</a>
+    <a href="#contact" onClick="{{ navContact }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Contact</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;margin-left:auto;">
+    <a href="#cart" onClick="{{ openCart }}" class="icon-btn" aria-label="Winkelwagen" style="position:relative;background:none;border:1px solid var(--border);border-radius:50%;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--text);flex-shrink:0;transition:border-color 0.2s;">
+      🛒
+      <sc-if value="{{ hasCartItems }}" hint-placeholder-val="{{ false }}">
+        <span style="position:absolute;top:-5px;right:-5px;background:var(--accent);color:#fff;font-size:10px;font-weight:700;min-width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0 3px;">{{ cartCount }}</span>
+      </sc-if>
+    </a>
+    <button class="icon-btn" onClick="{{ toggleDark }}" title="Wissel thema" style="background:none;border:1px solid var(--border);border-radius:50%;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--text);flex-shrink:0;transition:border-color 0.2s;"><span class="theme-icon" style="{{ darkIconStyle }}">{{ darkIcon }}</span></button>
+    <button class="hamburger icon-btn" onClick="{{ toggleMobile }}" style="display:none;flex-direction:column;gap:5px;padding:6px;background:none;border:none;cursor:pointer;align-items:center;">
+      <span style="display:block;width:22px;height:2px;background:var(--text);border-radius:1px;"></span>
+      <span style="display:block;width:22px;height:2px;background:var(--text);border-radius:1px;"></span>
+      <span style="display:block;width:22px;height:2px;background:var(--text);border-radius:1px;"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-drawer" style="{{ mobileDrawerStyle }}">
+    <a href="#favorieten" onClick="{{ navFavorieten }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Favorieten</a>
+    <a href="#menu" onClick="{{ navMenu }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Menu</a>
+    <a href="#over-ons" onClick="{{ navOverOns }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Over Ons</a>
+    <a href="#contact" onClick="{{ navContact }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Contact</a>
+</div>
+
+<!-- HERO -->
+<sc-if value="{{ showHome }}" hint-placeholder-val="{{ true }}">
+<section id="home" style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+  <img src="images/hero-bakso.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;" />
+  <div style="position: absolute; inset: 0; background: linear-gradient(160deg,rgba(10,6,3,0.68) 0%,rgba(10,6,3,0.90) 100%); opacity: 0.8"></div>
+  <div style="position:relative;z-index:2;text-align:center;padding:clamp(96px,14vw,180px) clamp(20px,6vw,80px) clamp(64px,8vw,100px);max-width:960px;margin:0 auto;color:#F0E8DC;animation:heroUp 1.1s ease both;">
+    <p style="font-size:clamp(11px,1.5vw,13px);letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:18px;">Authentieke Indonesische Keuken · Deventer</p>
+    <h1 style="font-family:'Cormorant Garant',serif;font-style:italic;font-size:clamp(56px,10vw,118px);font-weight:600;line-height:1.02;margin-bottom:28px;color:#F5EDE3;">Indonesia<br>Food Truck</h1>
+    <p style="font-size:clamp(15px,2vw,18px);color:rgba(240,232,220,0.70);max-width:520px;margin:0 auto 44px;line-height:1.8;text-wrap:pretty;">Smaakvolle gerechten uit de rijke Indonesische keuken, vers bereid voor u.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:56px;">
+      <a href="#menu" onClick="{{ navMenu }}" class="cta-solid" style="display:inline-flex;align-items:center;background:var(--accent);color:#fff;padding:14px 38px;border-radius:3px;font-size:14px;font-weight:500;letter-spacing:0.04em;">Bekijk het Menu</a>
+      <a href="#over-ons" onClick="{{ navOverOns }}" class="cta-outline" style="display:inline-flex;align-items:center;border:1px solid rgba(240,232,220,0.32);color:rgba(240,232,220,0.80);padding:14px 38px;border-radius:3px;font-size:14px;font-weight:500;letter-spacing:0.04em;">Over Ons</a>
+    </div>
+    <div style="display:flex;gap:clamp(20px,5vw,52px);justify-content:center;flex-wrap:wrap;padding-top:32px;border-top:1px solid rgba(240,232,220,0.12);">
+      <div style="text-align:center;">
+        <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(240,232,220,0.42);margin-bottom:8px;">Dag</div>
+        <div style="font-size:15px;font-weight:500;color:rgba(240,232,220,0.80);">Elke maandag</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(240,232,220,0.42);margin-bottom:8px;">Tijden</div>
+        <div style="font-size:15px;font-weight:500;color:rgba(240,232,220,0.80);">10:00 – 18:00</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(240,232,220,0.42);margin-bottom:8px;">Locatie</div>
+        <div style="font-size:15px;font-weight:500;color:rgba(240,232,220,0.80);">Borgele Winkelcentrum, Deventer</div>
+      </div>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<!-- OVER ONS -->
+<sc-if value="{{ showOverOns }}" hint-placeholder-val="{{ false }}">
+<section id="over-ons" style="position:relative;padding:clamp(72px,10vw,128px) clamp(20px,5vw,80px);background:var(--bg);overflow:hidden;">
+  <img src="images/kip-sate.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.08;">
+  <div style="position:relative;z-index:1;max-width:720px;margin:0 auto;text-align:center;">
+    <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:16px;">Wie zijn wij</p>
+    <h2 style="font-family:'Cormorant Garant',serif;font-size:clamp(38px,6vw,60px);font-weight:600;line-height:1.1;margin-bottom:36px;color:var(--text);">Over Ons</h2>
+    <p style="font-size:17px;line-height:1.9;color:var(--text-muted);margin-bottom:24px;text-wrap:pretty;">Indonesia Food Truck brengt de rijke, kleurrijke smaken van de Indonesische keuken naar het hart van Deventer. Elke maandag staan wij klaar op het Borgele Winkelcentrum om u te verwennen met authentieke gerechten, bereid met verse ingrediënten en traditionele kruiden en specerijen.</p>
+    <p style="font-size:17px;line-height:1.9;color:var(--text-muted);text-wrap:pretty;">Van een stevige rames tot heerlijke snacks en verfrissende drankjes — ons menu biedt iets voor iedereen. Of u nu opgroeit met de smaken van Indonesië of voor het eerst kennismaakt met deze culinaire traditie, bij ons bent u van harte welkom.</p>
+    <div style="display:flex;align-items:center;gap:14px;margin:52px auto 0;width:180px;">
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+      <div style="width:5px;height:5px;background:var(--accent);border-radius:50%;"></div>
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ONS VERHAAL -->
+<section id="verhaal" style="padding:clamp(72px,10vw,128px) clamp(20px,5vw,80px);background:var(--bg-alt);">
+  <div style="max-width:720px;margin:0 auto;text-align:center;">
+    <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:16px;">Ons Verhaal</p>
+    <h2 style="font-family:'Cormorant Garant',serif;font-size:clamp(38px,6vw,60px);font-weight:600;line-height:1.1;margin-bottom:16px;color:var(--text);">Van Hobby naar Baan</h2>
+    <p style="font-family:'Cormorant Garant',serif;font-size:clamp(20px,3vw,26px);font-style:italic;color:var(--text-muted);margin-bottom:44px;line-height:1.55;">"Koken is voor mij geen werk — het is een manier om liefde te delen."</p>
+    <p style="font-size:17px;line-height:1.9;color:var(--text-muted);margin-bottom:24px;text-wrap:pretty;">Vega Maki groeide op omringd door de geuren en smaken van de Indonesische keuken. Thuis koken was meer dan een dagelijkse bezigheid — het was een traditie, een verbinding met haar roots, een taal van liefde en gastvrijheid die van generatie op generatie werd doorgegeven.</p>
+    <p style="font-size:17px;line-height:1.9;color:var(--text-muted);margin-bottom:24px;text-wrap:pretty;">Wat begon als een passie voor het koken van authentieke familiegerechten, groeide met de jaren uit tot iets groters. Vrienden, familie en kennissen waren keer op keer enthousiast over Vega's kookkunsten, en hun aanmoedigingen gaven haar de moed om de stap te wagen.</p>
+    <p style="font-size:17px;line-height:1.9;color:var(--text-muted);text-wrap:pretty;">Indonesia Food Truck is de belichaming van die droom. Gesponsord door Het Javaanse Smulpaleis en gedreven door hartstocht, brengt Vega elke maandag de authentieke smaken van Indonesië naar de straten van Deventer — met trots, met toewijding, en met een groot hart.</p>
+  </div>
+</section>
+</sc-if>
+
+<!-- ONZE FAVORIETEN -->
+<sc-if value="{{ showFavorieten }}" hint-placeholder-val="{{ false }}">
+<section id="favorieten" style="padding:clamp(72px,10vw,128px) clamp(20px,5vw,80px);background:var(--bg);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:56px;">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:16px;">Aanbevolen</p>
+      <h2 style="font-family:'Cormorant Garant',serif;font-size:clamp(38px,6vw,60px);font-weight:600;line-height:1.1;color:var(--text);">Onze Favorieten</h2>
+    </div>
+    <div class="fav-grid">
+      <div class="fav-item">
+        <div class="fav-img-wrap" style="aspect-ratio:3/4;border-radius:4px;background:var(--bg-alt);">
+          <img src="images/kip-sate.jpg" alt="Kip Sate" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <p style="margin-top:13px;font-family:'Cormorant Garant',serif;font-size:19px;font-style:italic;color:var(--text);">Kip Sate</p>
+      </div>
+      <div class="fav-item">
+        <div class="fav-img-wrap" style="aspect-ratio:3/4;border-radius:4px;background:var(--bg-alt);">
+          <img src="images/gado-gado.jpg" alt="Gado-gado" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <p style="margin-top:13px;font-family:'Cormorant Garant',serif;font-size:19px;font-style:italic;color:var(--text);">Gado-gado</p>
+      </div>
+      <div class="fav-item">
+        <div class="fav-img-wrap" style="aspect-ratio:3/4;border-radius:4px;background:var(--bg-alt);">
+          <img src="images/vis-mackerel.jpg" alt="Vis Makreel" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <p style="margin-top:13px;font-family:'Cormorant Garant',serif;font-size:19px;font-style:italic;color:var(--text);">Vis Makreel</p>
+      </div>
+      <div class="fav-item">
+        <div class="fav-img-wrap" style="aspect-ratio:3/4;border-radius:4px;background:var(--bg-alt);">
+          <img src="images/kue-lapis.jpg" alt="Kue Lapis" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <p style="margin-top:13px;font-family:'Cormorant Garant',serif;font-size:19px;font-style:italic;color:var(--text);">Kue Lapis</p>
+      </div>
+      <div class="fav-item">
+        <div class="fav-img-wrap" style="aspect-ratio:3/4;border-radius:4px;background:var(--bg-alt);">
+          <img src="images/broodje-rica.jpg" alt="Broodje Rica" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <p style="margin-top:13px;font-family:'Cormorant Garant',serif;font-size:19px;font-style:italic;color:var(--text);">Broodje Rica</p>
+      </div>
+      <div class="fav-item">
+        <div class="fav-img-wrap" style="aspect-ratio:3/4;border-radius:4px;background:var(--bg-alt);">
+          <img src="images/boontjes.jpg" alt="Boontjes" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <p style="margin-top:13px;font-family:'Cormorant Garant',serif;font-size:19px;font-style:italic;color:var(--text);">Boontjes</p>
+      </div>
+      <div class="fav-item">
+        <div class="fav-img-wrap" style="aspect-ratio:3/4;border-radius:4px;background:var(--bg-alt);">
+          <img src="images/lodeh.jpg" alt="Lodeh" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <p style="margin-top:13px;font-family:'Cormorant Garant',serif;font-size:19px;font-style:italic;color:var(--text);">Lodeh</p>
+      </div>
+      <div class="fav-item">
+        <div class="fav-img-wrap" style="aspect-ratio:3/4;border-radius:4px;background:var(--bg-alt);">
+          <img src="images/zoete-kip-kluif.jpg" alt="Zoete Kip Kluif" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <p style="margin-top:13px;font-family:'Cormorant Garant',serif;font-size:19px;font-style:italic;color:var(--text);">Zoete Kip Kluif</p>
+      </div>
+      <div class="fav-item">
+        <div class="fav-img-wrap" style="aspect-ratio:3/4;border-radius:4px;background:var(--bg-alt);">
+          <img src="images/pastei.jpg" alt="Kip Pastei" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <p style="margin-top:13px;font-family:'Cormorant Garant',serif;font-size:19px;font-style:italic;color:var(--text);">Kip Pastei</p>
+      </div>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<!-- MENU -->
+<sc-if value="{{ showMenuPage }}" hint-placeholder-val="{{ false }}">
+<section id="menu" style="padding:clamp(72px,10vw,128px) clamp(20px,5vw,80px);background:var(--bg-alt);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:56px;">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:16px;">Ons Aanbod</p>
+      <h2 style="font-family:'Cormorant Garant',serif;font-size:clamp(38px,6vw,60px);font-weight:600;line-height:1.1;color:var(--text);">Het Menu</h2>
+      <p style="font-size:15px;color:var(--text-muted);margin-top:14px;">Blader door ons aanbod en voeg gerechten direct toe aan uw bestelling</p>
+    </div>
+
+    <div style="max-width:520px;margin:0 auto 28px;">
+      <input type="text" value="{{ searchQuery }}" onChange="{{ onSearchChange }}" placeholder="Zoek een gerecht…" style="width:100%;padding:13px 18px;border-radius:999px;border:1px solid var(--border);background:var(--bg-card);color:var(--text);font-size:15px;font-family:inherit;" />
+    </div>
+    <div class="tabs-wrap" style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:40px;">
+      <sc-for list="{{ tabs }}" as="tab" hint-placeholder-count="8">
+        <button class="{{ tab.btnClass }}" onClick="{{ tab.onClick }}" style="{{ tab.btnStyle }}">{{ tab.label }}</button>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+      <p style="text-align:center;font-size:16px;color:var(--text-muted);padding:40px 0;">Geen gerechten gevonden voor "{{ searchQuery }}".</p>
+    </sc-if>
+
+    <!-- RAMES MENU -->
+    <sc-if value="{{ showRames }}" hint-placeholder-val="{{ true }}">
+      <div>
+        <h3 style="text-align:center;font-family:'Cormorant Garant',serif;font-size:26px;font-style:italic;color:var(--accent);margin-bottom:8px;">Rames Menu</h3>
+        <p style="text-align:center;font-size:14px;color:var(--text-muted);margin-bottom:32px;">Kies uw basis en combineer naar wens</p>
+        <div class="menu-grid-2">
+          <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:32px;transition:background 0.3s;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
+              <h3 style="font-family:'Cormorant Garant',serif;font-size:30px;font-weight:600;color:var(--text);">Rames Klein</h3>
+              <span style="font-family:'Cormorant Garant',serif;font-size:26px;font-weight:600;color:var(--accent);">€13,50</span>
+            </div>
+            <div style="height:1px;background:var(--border);margin-bottom:20px;"></div>
+            <p style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:10px;">Basis naar keuze</p>
+            <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:20px;">
+              <p style="font-size:14px;color:var(--text-muted);">· Witte rijst</p>
+              <p style="font-size:14px;color:var(--text-muted);">· Gebakken rijst</p>
+              <p style="font-size:14px;color:var(--text-muted);">· Gele rijst</p>
+              <p style="font-size:14px;color:var(--text-muted);">· Gebakken bami</p>
+            </div>
+            <p style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:10px;">Inclusief</p>
+            <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:20px;">
+              <p style="font-size:14px;color:var(--text-muted);">· 2 groentengerechten naar keuze</p>
+              <p style="font-size:14px;color:var(--text-muted);">· 1 vleesgerecht naar keuze</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <sc-if value="{{ ramesKlein.inCart }}" hint-placeholder-val="{{ false }}">
+                <button class="icon-btn" onClick="{{ ramesKlein.onRemove }}" aria-label="Verwijder" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
+                <span style="font-size:15px;font-weight:600;color:var(--text);min-width:18px;text-align:center;">{{ ramesKlein.qty }}</span>
+              </sc-if>
+              <button class="icon-btn" onClick="{{ ramesKlein.onAdd }}" aria-label="Voeg toe" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
+            </div>
+          </div>
+          <div class="info-card" style="background:var(--bg-card);border:2px solid var(--accent);border-radius:8px;padding:32px;position:relative;transition:background 0.3s;">
+            <div style="position:absolute;top:-12px;left:24px;background:var(--accent);color:#fff;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:2px;">Meest Gekozen</div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
+              <h3 style="font-family:'Cormorant Garant',serif;font-size:30px;font-weight:600;color:var(--text);">Rames Groot</h3>
+              <span style="font-family:'Cormorant Garant',serif;font-size:26px;font-weight:600;color:var(--accent);">€16,50</span>
+            </div>
+            <div style="height:1px;background:var(--border);margin-bottom:20px;"></div>
+            <p style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:10px;">Basis naar keuze</p>
+            <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:20px;">
+              <p style="font-size:14px;color:var(--text-muted);">· Witte rijst</p>
+              <p style="font-size:14px;color:var(--text-muted);">· Gebakken rijst</p>
+              <p style="font-size:14px;color:var(--text-muted);">· Gele rijst</p>
+              <p style="font-size:14px;color:var(--text-muted);">· Gebakken bami</p>
+            </div>
+            <p style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:10px;">Inclusief</p>
+            <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:20px;">
+              <p style="font-size:14px;color:var(--text-muted);">· 3 groentengerechten naar keuze</p>
+              <p style="font-size:14px;color:var(--text-muted);">· 2 vleesgerechten naar keuze</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <sc-if value="{{ ramesGroot.inCart }}" hint-placeholder-val="{{ false }}">
+                <button class="icon-btn" onClick="{{ ramesGroot.onRemove }}" aria-label="Verwijder" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
+                <span style="font-size:15px;font-weight:600;color:var(--text);min-width:18px;text-align:center;">{{ ramesGroot.qty }}</span>
+              </sc-if>
+              <button class="icon-btn" onClick="{{ ramesGroot.onAdd }}" aria-label="Voeg toe" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- RAMES VEGETARISCH -->
+    <sc-if value="{{ showRamesVeg }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <h3 style="text-align:center;font-family:'Cormorant Garant',serif;font-size:26px;font-style:italic;color:var(--accent);margin-bottom:8px;">Rames Vegetarisch</h3>
+        <p style="text-align:center;font-size:14px;color:var(--text-muted);margin-bottom:32px;">Volledig vegetarische rames opties</p>
+        <div class="menu-grid-2">
+          <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:32px;transition:background 0.3s;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
+              <h3 style="font-family:'Cormorant Garant',serif;font-size:28px;font-weight:600;color:var(--text);">Vegetarisch Klein</h3>
+              <span style="font-family:'Cormorant Garant',serif;font-size:26px;font-weight:600;color:var(--accent);">€12,50</span>
+            </div>
+            <div style="height:1px;background:var(--border);margin-bottom:20px;"></div>
+            <p style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:10px;">Basis naar keuze</p>
+            <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px;">· Witte rijst · Gebakken rijst · Gele rijst · Gebakken bami</p>
+            <p style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:10px;">Inclusief</p>
+            <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:20px;">
+              <p style="font-size:14px;color:var(--text-muted);">· 3 groentengerechten naar keuze</p>
+              <p style="font-size:14px;color:var(--text-muted);">· 1 ei of 1 maiskoekje</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <sc-if value="{{ ramesVegKlein.inCart }}" hint-placeholder-val="{{ false }}">
+                <button class="icon-btn" onClick="{{ ramesVegKlein.onRemove }}" aria-label="Verwijder" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
+                <span style="font-size:15px;font-weight:600;color:var(--text);min-width:18px;text-align:center;">{{ ramesVegKlein.qty }}</span>
+              </sc-if>
+              <button class="icon-btn" onClick="{{ ramesVegKlein.onAdd }}" aria-label="Voeg toe" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
+            </div>
+          </div>
+          <div class="info-card" style="background:var(--bg-card);border:2px solid var(--accent);border-radius:8px;padding:32px;position:relative;transition:background 0.3s;">
+            <div style="position:absolute;top:-12px;left:24px;background:var(--accent);color:#fff;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:2px;">Meest Gekozen</div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
+              <h3 style="font-family:'Cormorant Garant',serif;font-size:28px;font-weight:600;color:var(--text);">Vegetarisch Groot</h3>
+              <span style="font-family:'Cormorant Garant',serif;font-size:26px;font-weight:600;color:var(--accent);">€14,50</span>
+            </div>
+            <div style="height:1px;background:var(--border);margin-bottom:20px;"></div>
+            <p style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:10px;">Basis naar keuze</p>
+            <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px;">· Witte rijst · Gebakken rijst · Gele rijst · Gebakken bami</p>
+            <p style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:10px;">Inclusief</p>
+            <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:20px;">
+              <p style="font-size:14px;color:var(--text-muted);">· 4 groentengerechten naar keuze</p>
+              <p style="font-size:14px;color:var(--text-muted);">· 1 ei of 1 maiskoekje</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <sc-if value="{{ ramesVegGroot.inCart }}" hint-placeholder-val="{{ false }}">
+                <button class="icon-btn" onClick="{{ ramesVegGroot.onRemove }}" aria-label="Verwijder" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
+                <span style="font-size:15px;font-weight:600;color:var(--text);min-width:18px;text-align:center;">{{ ramesVegGroot.qty }}</span>
+              </sc-if>
+              <button class="icon-btn" onClick="{{ ramesVegGroot.onAdd }}" aria-label="Voeg toe" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- VLEESGERECHTEN -->
+    <sc-if value="{{ showVlees }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <h3 style="text-align:center;font-family:'Cormorant Garant',serif;font-size:26px;font-style:italic;color:var(--accent);margin-bottom:8px;">Vleesgerechten</h3>
+        <p style="text-align:center;font-size:14px;color:var(--text-muted);margin-bottom:8px;">Klein portie: <strong style="color:var(--accent);">€4,00</strong> per gerecht</p>
+        <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-bottom:32px;">Te bestellen los of als onderdeel van een rames</p>
+        <div class="menu-grid-3">
+          <sc-for list="{{ vleesItems }}" as="item" hint-placeholder-count="6">
+            <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:background 0.3s;">
+              <h3 style="font-family:'Cormorant Garant',serif;font-size:22px;font-weight:600;color:var(--text);margin-bottom:8px;">{{ item.name }}</h3>
+              <p style="font-size:14px;line-height:1.6;color:var(--text-muted);margin-bottom:14px;">{{ item.desc }}</p>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
+                  <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
+                  <span style="font-size:14px;font-weight:600;color:var(--text);min-width:16px;text-align:center;">{{ item.qty }}</span>
+                </sc-if>
+                <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- KIP EN VISGERECHTEN -->
+    <sc-if value="{{ showKipVis }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <h3 style="text-align:center;font-family:'Cormorant Garant',serif;font-size:26px;font-style:italic;color:var(--accent);margin-bottom:8px;">Kip en Visgerechten</h3>
+        <p style="text-align:center;font-size:14px;color:var(--text-muted);margin-bottom:8px;">Klein portie: <strong style="color:var(--accent);">€4,00</strong> per gerecht</p>
+        <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-bottom:28px;">Te bestellen los of als onderdeel van een rames</p>
+        <div class="menu-grid-3" style="margin-bottom:32px;">
+          <sc-for list="{{ kipVisItems }}" as="item" hint-placeholder-count="3">
+            <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:background 0.3s;">
+              <h3 style="font-family:'Cormorant Garant',serif;font-size:22px;font-weight:600;color:var(--text);margin-bottom:8px;">{{ item.name }}</h3>
+              <p style="font-size:14px;line-height:1.6;color:var(--text-muted);margin-bottom:14px;">{{ item.desc }}</p>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
+                  <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
+                  <span style="font-size:14px;font-weight:600;color:var(--text);min-width:16px;text-align:center;">{{ item.qty }}</span>
+                </sc-if>
+                <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px;">
+          <div style="flex:1;height:1px;background:var(--border);"></div>
+          <p style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;">Los verkrijgbaar</p>
+          <div style="flex:1;height:1px;background:var(--border);"></div>
+        </div>
+        <div class="menu-grid-2">
+          <sc-for list="{{ kipVisExtras }}" as="item" hint-placeholder-count="2">
+            <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:background 0.3s;">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+                <div>
+                  <h3 style="font-family:'Cormorant Garant',serif;font-size:22px;font-weight:600;color:var(--text);margin-bottom:8px;">{{ item.name }}</h3>
+                  <p style="font-size:14px;line-height:1.6;color:var(--text-muted);">{{ item.desc }}</p>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;">
+                  <span style="font-family:'Cormorant Garant',serif;font-size:18px;font-weight:600;color:var(--accent);white-space:nowrap;">{{ item.priceLabel }}</span>
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
+                      <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
+                      <span style="font-size:13px;font-weight:600;color:var(--text);min-width:14px;text-align:center;">{{ item.qty }}</span>
+                    </sc-if>
+                    <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- GROENTENGERECHTEN -->
+    <sc-if value="{{ showGroenten }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <h3 style="text-align:center;font-family:'Cormorant Garant',serif;font-size:26px;font-style:italic;color:var(--accent);margin-bottom:8px;">Groentengerechten</h3>
+        <p style="text-align:center;font-size:14px;color:var(--text-muted);margin-bottom:8px;">Klein portie: <strong style="color:var(--accent);">€3,00</strong> per gerecht</p>
+        <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-bottom:32px;">Te bestellen los of als onderdeel van een rames</p>
+        <div class="menu-grid-3">
+          <sc-for list="{{ groentenItems }}" as="item" hint-placeholder-count="5">
+            <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:background 0.3s;">
+              <h3 style="font-family:'Cormorant Garant',serif;font-size:22px;font-weight:600;color:var(--text);margin-bottom:8px;">{{ item.name }}</h3>
+              <p style="font-size:14px;line-height:1.6;color:var(--text-muted);margin-bottom:14px;">{{ item.desc }}</p>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
+                  <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
+                  <span style="font-size:14px;font-weight:600;color:var(--text);min-width:16px;text-align:center;">{{ item.qty }}</span>
+                </sc-if>
+                <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- BIJGERECHTEN -->
+    <sc-if value="{{ showBijgerechten }}" hint-placeholder-val="{{ false }}">
+      <div>
+      <h3 style="text-align:center;font-family:'Cormorant Garant',serif;font-size:26px;font-style:italic;color:var(--accent);margin-bottom:24px;">Bijgerechten</h3>
+      <div class="menu-grid-3">
+        <sc-for list="{{ bijgerechtenItems }}" as="item" hint-placeholder-count="6">
+          <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:background 0.3s;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+              <div>
+                <h3 style="font-family:'Cormorant Garant',serif;font-size:22px;font-weight:600;color:var(--text);margin-bottom:6px;">{{ item.name }}</h3>
+                <p style="font-size:14px;line-height:1.6;color:var(--text-muted);">{{ item.desc }}</p>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;">
+                <span style="font-family:'Cormorant Garant',serif;font-size:20px;font-weight:600;color:var(--accent);white-space:nowrap;">{{ item.priceLabel }}</span>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
+                    <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
+                    <span style="font-size:13px;font-weight:600;color:var(--text);min-width:14px;text-align:center;">{{ item.qty }}</span>
+                  </sc-if>
+                  <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      </div>
+    </sc-if>
+
+    <!-- BROODJES -->
+    <sc-if value="{{ showBroodjes }}" hint-placeholder-val="{{ false }}">
+      <div>
+      <h3 style="text-align:center;font-family:'Cormorant Garant',serif;font-size:26px;font-style:italic;color:var(--accent);margin-bottom:24px;">Broodjes</h3>
+      <div class="menu-grid-2">
+        <sc-for list="{{ broodjesItems }}" as="item" hint-placeholder-count="5">
+          <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:background 0.3s;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+              <div>
+                <h3 style="font-family:'Cormorant Garant',serif;font-size:22px;font-weight:600;color:var(--text);margin-bottom:6px;">{{ item.name }}</h3>
+                <p style="font-size:14px;line-height:1.6;color:var(--text-muted);">{{ item.desc }}</p>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;">
+                <span style="font-family:'Cormorant Garant',serif;font-size:20px;font-weight:600;color:var(--accent);white-space:nowrap;">{{ item.priceLabel }}</span>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
+                    <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
+                    <span style="font-size:13px;font-weight:600;color:var(--text);min-width:14px;text-align:center;">{{ item.qty }}</span>
+                  </sc-if>
+                  <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      </div>
+    </sc-if>
+
+    <!-- SNACKS -->
+    <sc-if value="{{ showSnacks }}" hint-placeholder-val="{{ false }}">
+      <div>
+      <h3 style="text-align:center;font-family:'Cormorant Garant',serif;font-size:26px;font-style:italic;color:var(--accent);margin-bottom:24px;">Snacks</h3>
+      <div class="menu-grid-3">
+        <sc-for list="{{ snacksItems }}" as="item" hint-placeholder-count="8">
+          <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:24px;transition:background 0.3s;">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+              <h3 style="font-family:'Cormorant Garant',serif;font-size:22px;font-weight:600;color:var(--text);">{{ item.name }}</h3>
+              <div style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
+                <span style="font-family:'Cormorant Garant',serif;font-size:20px;font-weight:600;color:var(--accent);white-space:nowrap;">{{ item.priceLabel }}</span>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
+                    <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
+                    <span style="font-size:13px;font-weight:600;color:var(--text);min-width:14px;text-align:center;">{{ item.qty }}</span>
+                  </sc-if>
+                  <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      </div>
+    </sc-if>
+
+    <!-- DRANKJES -->
+    <sc-if value="{{ showDranken }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width:480px;margin:0 auto;">
+        <h3 style="text-align:center;font-family:'Cormorant Garant',serif;font-size:26px;font-style:italic;color:var(--accent);margin-bottom:24px;">Drankjes</h3>
+        <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:36px;transition:background 0.3s;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+            <div>
+              <h3 style="font-family:'Cormorant Garant',serif;font-size:30px;font-weight:600;color:var(--text);margin-bottom:10px;">Es Cendol</h3>
+              <p style="font-size:15px;line-height:1.7;color:var(--text-muted);">Verfrissende Indonesische koude drank met groene rijstvermicelli en kokosmelk</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;flex-shrink:0;">
+              <span style="font-family:'Cormorant Garant',serif;font-size:26px;font-weight:600;color:var(--accent);white-space:nowrap;">€3,50</span>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <sc-if value="{{ cendol.inCart }}" hint-placeholder-val="{{ false }}">
+                  <button class="icon-btn" onClick="{{ cendol.onRemove }}" aria-label="Verwijder" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
+                  <span style="font-size:14px;font-weight:600;color:var(--text);min-width:16px;text-align:center;">{{ cendol.qty }}</span>
+                </sc-if>
+                <button class="icon-btn" onClick="{{ cendol.onAdd }}" aria-label="Voeg toe" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+  </div>
+</section>
+</sc-if>
+
+<!-- WINKELWAGEN -->
+<!-- WINKELWAGEN OVERLAY -->
+<div onClick="{{ closeCartBackdrop }}" style="{{ cartBackdropStyle }}"></div>
+<div style="{{ cartDrawerStyle }}">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:24px 24px 20px;border-bottom:1px solid var(--border);">
+    <h2 style="font-family:'Cormorant Garant',serif;font-size:26px;font-weight:600;color:var(--text);">Winkelwagen</h2>
+    <button class="icon-btn" onClick="{{ closeCart }}" aria-label="Sluiten" style="background:none;border:1px solid var(--border);border-radius:50%;width:34px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text);flex-shrink:0;">✕</button>
+  </div>
+  <div style="padding:24px;overflow-y:auto;flex:1;">
+    <sc-if value="{{ hasCartItems }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:24px;">
+        <sc-for list="{{ cartLines }}" as="line" hint-placeholder-count="3">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <button class="icon-btn" onClick="{{ line.onRemove }}" aria-label="Verwijder" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">−</button>
+              <p style="font-size:14px;color:var(--text);">{{ line.qty }}× {{ line.name }}</p>
+            </div>
+            <span style="font-size:14px;font-weight:600;color:var(--text-muted);white-space:nowrap;">{{ line.lineTotal }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="height:1px;background:var(--border);margin-bottom:20px;"></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <p style="font-size:16px;font-weight:600;color:var(--text);">Totaal ({{ cartCount }} items)</p>
+        <p style="font-family:'Cormorant Garant',serif;font-size:26px;font-weight:600;color:var(--accent);">{{ cartTotal }}</p>
+      </div>
+      <button class="footer-link" onClick="{{ clearCart }}" style="display:block;width:100%;text-align:left;background:none;border:none;color:var(--text-muted);font-size:13px;padding:4px 0 8px;cursor:pointer;">Bestelling leegmaken</button>
+    </sc-if>
+    <sc-if value="{{ !hasCartItems }}" hint-placeholder-val="{{ true }}">
+      <p style="font-size:15px;color:var(--text-muted);margin-bottom:24px;">Nog geen items toegevoegd. Kies een categorie en klik op + om te beginnen.</p>
+      <a href="#menu" onClick="{{ navMenuFromCart }}" class="cta-solid" style="display:block;text-align:center;background:var(--accent);color:#fff;padding:14px;border-radius:3px;font-size:14px;font-weight:500;letter-spacing:0.03em;">Bekijk het Menu</a>
+    </sc-if>
+  </div>
+  <sc-if value="{{ hasCartItems }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:20px 24px;border-top:1px solid var(--border);">
+      <a href="{{ whatsappOrderUrl }}" target="_blank" rel="noopener noreferrer" class="cta-solid" style="display:block;text-align:center;background:var(--accent);color:#fff;padding:15px;border-radius:3px;font-size:14px;font-weight:600;letter-spacing:0.03em;">Bestel via WhatsApp</a>
+    </div>
+  </sc-if>
+</div>
+
+<!-- BEZOEK ONS -->
+<sc-if value="{{ showContact }}" hint-placeholder-val="{{ false }}">
+<section id="contact" style="padding:clamp(72px,10vw,128px) clamp(20px,5vw,80px);background:var(--bg);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:64px;">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:16px;">Kom langs</p>
+      <h2 style="font-family:'Cormorant Garant',serif;font-size:clamp(38px,6vw,60px);font-weight:600;line-height:1.1;color:var(--text);">Bezoek Ons</h2>
+    </div>
+    <div class="contact-grid">
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div class="info-card" style="background:var(--bg-alt);border-radius:8px;padding:28px;transition:background 0.3s;">
+          <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:12px;">Locatie</p>
+          <p style="font-size:19px;font-weight:500;color:var(--text);margin-bottom:4px;">Borgele Winkelcentrum</p>
+          <p style="font-size:15px;color:var(--text-muted);">Deventer, Nederland</p>
+        </div>
+        <div class="info-card" style="background:var(--bg-alt);border-radius:8px;padding:28px;transition:background 0.3s;">
+          <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:12px;">Openingstijden</p>
+          <p style="font-size:19px;font-weight:500;color:var(--text);margin-bottom:4px;">Elke maandag</p>
+          <p style="font-size:15px;color:var(--text-muted);">10:00 – 18:00 uur (CET)</p>
+        </div>
+        <div class="info-card" style="background:var(--bg-alt);border-radius:8px;padding:28px;transition:background 0.3s;">
+          <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:16px;">Contact</p>
+          <p style="font-size:16px;font-weight:500;color:var(--text);margin-bottom:18px;">Vega Maki</p>
+          <div style="display:flex;flex-direction:column;gap:13px;">
+            <a href="tel:+31611011673" style="display:flex;align-items:center;gap:10px;font-size:15px;color:var(--text-muted);">
+              <span style="font-size:16px;">📞</span> +31 6 11 01 16 73
+            </a>
+            
+            <a href="mailto:vegamaki@yahoo.com" style="display:flex;align-items:center;gap:10px;font-size:15px;color:var(--text-muted);">
+              <span style="font-size:16px;">✉</span> vegamaki@yahoo.com
+            </a>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="background:var(--accent);border-radius:8px;padding:36px;color:#fff;">
+          <h3 style="font-family:'Cormorant Garant',serif;font-size:32px;font-weight:600;margin-bottom:14px;">Vragen of Catering?</h3>
+          <p style="font-size:15px;line-height:1.8;opacity:0.9;margin-bottom:28px;text-wrap:pretty;">Voor vragen over ons aanbod of het boeken van catering voor uw evenement, kunt u ons bereiken via telefoon of WhatsApp.</p>
+          <a href="https://wa.me/31611011673" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" style="display:inline-block;background:#fff;color:var(--accent);padding:13px 30px;border-radius:3px;font-size:14px;font-weight:600;letter-spacing:0.03em;">Stuur een WhatsApp</a>
+        </div>
+        <div class="info-card" style="background:var(--bg-alt);border-radius:8px;padding:28px;transition:background 0.3s;">
+          <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:20px;">Volg Ons</p>
+          <div style="display:flex;flex-direction:column;gap:18px;">
+            <a href="https://www.facebook.com/indonesia.food.truck/" target="_blank" rel="noopener noreferrer" class="social-link" style="display:flex;align-items:center;gap:14px;font-size:15px;font-weight:500;color:var(--text);">
+              <span style="width:36px;height:36px;background:#1877F2;border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:19px;font-weight:800;font-family:Georgia,serif;flex-shrink:0;">f</span>
+              Indonesia Food Truck
+            </a>
+            <a href="https://www.instagram.com/indonesia.food.truck/" target="_blank" rel="noopener noreferrer" class="social-link" style="display:flex;align-items:center;gap:14px;font-size:15px;font-weight:500;color:var(--text);">
+              <span style="width:36px;height:36px;background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;flex-shrink:0;">◎</span>
+              @indonesia.food.truck
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<!-- FOOTER -->
+<footer style="background:var(--bg-alt);border-top:1px solid var(--border);padding:clamp(40px,6vw,64px) clamp(20px,5vw,80px);transition:background 0.3s;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:28px;margin-bottom:36px;">
+      <div>
+        <p style="font-family:'Cormorant Garant',serif;font-size:24px;font-style:italic;font-weight:600;color:var(--accent);margin-bottom:8px;">Indonesia Food Truck</p>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:4px;">Elke maandag · Borgele Winkelcentrum, Deventer</p>
+        <p style="font-size:13px;color:var(--text-muted);">Gesponsord door: Het Javaanse Smulpaleis</p>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center;">
+        <a href="#over-ons" onClick="{{ navOverOns }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Over Ons</a>
+        <a href="#menu" onClick="{{ navMenu }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Menu</a>
+        <a href="#favorieten" onClick="{{ navFavorieten }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Favorieten</a>
+        <a href="#contact" onClick="{{ navContact }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Contact</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <p style="font-size:11px;color:var(--text-muted);">KvK-nummer: 42055052 &nbsp;|&nbsp; BTW-id: NL867854935B01</p>
+      <p style="font-size:11px;color:var(--text-muted);">© 2025 Indonesia Food Truck · Alle rechten voorbehouden</p>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { dark: false, mobileOpen: false, activeTab: 'all', ready: false, cart: {}, page: 'home', searchQuery: '', cartOpen: false };
+
+  pages = ['home', 'favorieten', 'menu', 'over-ons', 'contact'];
+  // calculator page removed — cart now lives on the Menu page
+
+  tabs = [
+    { id: 'all', label: 'Alles Bekijken' },
+    { id: 'rames', label: 'Rames Menu' },
+    { id: 'rames-veg', label: 'Rames Vegetarisch' },
+    { id: 'vlees', label: 'Vleesgerechten' },
+    { id: 'kip-vis', label: 'Kip en Visgerechten' },
+    { id: 'groenten', label: 'Groentengerechten' },
+    { id: 'bijgerechten', label: 'Bijgerechten' },
+    { id: 'broodjes', label: 'Broodjes' },
+    { id: 'snacks', label: 'Snacks' },
+    { id: 'dranken', label: 'Drankjes' },
+  ];
+
+  vleesItems = [
+    { id: 'v-rendang', name: 'Daging Rendang', desc: 'Rundvlees in pittige kokossaus', price: 4.00 },
+    { id: 'v-balado', name: 'Daging Balado', desc: 'Rundvlees in licht pittige saus', price: 4.00 },
+    { id: 'v-semur', name: 'Daging Semur', desc: 'Rundvlees in zoete saus', price: 4.00 },
+  ];
+
+  kipVisItems = [
+    { id: 'kv-rica', name: 'Ayam Rica-Rica', desc: 'Kipfilet in pittige saus', price: 4.00 },
+    { id: 'kv-kari', name: 'Ayam Kari', desc: 'Kip in kerrie saus', price: 4.00 },
+    { id: 'kv-manis', name: 'Ayam Manis Filet', desc: 'Zoete kipfilet', price: 4.00 },
+  ];
+
+  kipVisExtras = [
+    { id: 'kv-vis', name: 'Vis Makreel', desc: 'Makreel in pittige tomatensaus', price: 3.00, priceLabel: '€3,00 / stuk' },
+    { id: 'kv-kluif', name: 'Zoete Kip Kluif', desc: 'Zoete kippenpoot', price: 1.00, priceLabel: '€1,00 / stuk' },
+  ];
+
+  groentenItems = [
+    { id: 'g-lodeh', name: 'Sayur Lodeh', desc: 'Gemengde groenten in kokosmelk saus', price: 3.00 },
+    { id: 'g-buncis', name: 'Sambal Goreng Buncis', desc: 'Sperziebonen in pittige sambal saus', price: 3.00 },
+    { id: 'g-capcay', name: 'Cap Cay', desc: 'Milde gemengde groenten', price: 3.00 },
+    { id: 'g-terong', name: 'Terong Balado', desc: 'Aubergine in licht pittige saus', price: 3.00 },
+    { id: 'g-tempe', name: 'Tempe Kecap', desc: 'Tempeh in zoete ketjap saus', price: 3.00 },
+  ];
+
+  bijgerechtenItems = [
+    { id: 'b-kentang', name: 'Perkedel Kentang', desc: 'Indonesisch aardappelkoekje', price: 1.00, priceLabel: '€1,00' },
+    { id: 'b-jagung', name: 'Perkedel Jagung', desc: 'Maiskoekje', price: 1.00, priceLabel: '€1,00' },
+    { id: 'b-telor', name: 'Telor Balado', desc: 'Hardgekookt ei in licht pittige saus', price: 1.00, priceLabel: '€1,00' },
+    { id: 'b-gado', name: 'Gado-Gado', desc: 'Groentenmix met pindasaus', price: 7.00, priceLabel: '€7,00' },
+    { id: 'b-soto', name: 'Soto Ayam', desc: 'Indonesische kippensoep met witte rijst', price: 7.00, priceLabel: '€7,00' },
+    { id: 'b-sate', name: 'Sate Ayam', desc: 'Kipspiesjes (3 stuks) met pindasaus', price: 5.00, priceLabel: '€5,00' },
+  ];
+
+  priceCatalog = {
+    'rames-klein': { name: 'Rames Klein', price: 13.50 },
+    'rames-groot': { name: 'Rames Groot', price: 16.50 },
+    'rames-veg-klein': { name: 'Vegetarisch Klein', price: 12.50 },
+    'rames-veg-groot': { name: 'Vegetarisch Groot', price: 14.50 },
+    'v-rendang': { name: 'Daging Rendang', price: 4.00 },
+    'v-balado': { name: 'Daging Balado', price: 4.00 },
+    'v-semur': { name: 'Daging Semur', price: 4.00 },
+    'kv-rica': { name: 'Ayam Rica-Rica', price: 4.00 },
+    'kv-kari': { name: 'Ayam Kari', price: 4.00 },
+    'kv-manis': { name: 'Ayam Manis Filet', price: 4.00 },
+    'kv-vis': { name: 'Vis Makreel', price: 3.00 },
+    'kv-kluif': { name: 'Zoete Kip Kluif', price: 1.00 },
+    'g-lodeh': { name: 'Sayur Lodeh', price: 3.00 },
+    'g-buncis': { name: 'Sambal Goreng Buncis', price: 3.00 },
+    'g-capcay': { name: 'Cap Cay', price: 3.00 },
+    'g-terong': { name: 'Terong Balado', price: 3.00 },
+    'g-tempe': { name: 'Tempe Kecap', price: 3.00 },
+    'b-kentang': { name: 'Perkedel Kentang', price: 1.00 },
+    'b-jagung': { name: 'Perkedel Jagung', price: 1.00 },
+    'b-telor': { name: 'Telor Balado', price: 1.00 },
+    'b-gado': { name: 'Gado-Gado', price: 7.00 },
+    'b-soto': { name: 'Soto Ayam', price: 7.00 },
+    'b-sate': { name: 'Sate Ayam', price: 5.00 },
+    'br-rendang': { name: 'Broodje Rendang', price: 5.00 },
+    'br-semur': { name: 'Broodje Semur', price: 5.00 },
+    'br-rica': { name: 'Broodje Kip Rica-Rica', price: 4.50 },
+    'br-kerrie': { name: 'Broodje Kip Kerrie', price: 4.50 },
+    'br-ei': { name: 'Broodje Pittige Ei', price: 4.50 },
+    's-pastei': { name: 'Kip Pastei', price: 2.00 },
+    's-risoles': { name: 'Kip Risoles', price: 2.00 },
+    's-lemper': { name: 'Kip Lemper', price: 2.00 },
+    's-banaan': { name: 'Gebakken Banaan', price: 2.00 },
+    's-sponscake': { name: 'Sponscake', price: 2.00 },
+    's-lumpia': { name: 'Kip Lumpia', price: 2.00 },
+    's-spekkoek': { name: 'Spekkoek', price: 2.50 },
+    's-kuelapis': { name: 'Kue Lapis', price: 2.50 },
+    'd-cendol': { name: 'Es Cendol', price: 3.50 },
+  };
+
+  fmtEur = (n) => '€' + n.toFixed(2).replace('.', ',');
+
+  cartQty = (id) => this.state.cart[id] || 0;
+
+  itemHandlers = (id) => ({
+    qty: this.cartQty(id),
+    inCart: this.cartQty(id) > 0,
+    onAdd: () => this.addToCart(id),
+    onRemove: () => this.removeFromCart(id),
+  });
+
+  withCart = (arr) => arr.map(it => ({ ...it, priceLabel: this.fmtEur(it.price), ...this.itemHandlers(it.id) }));
+
+  onSearchChange = (e) => this.setState({ searchQuery: e.target.value, activeTab: 'all' });
+
+  matchesQuery = (text, q) => (text || '').toLowerCase().includes(q);
+
+  withCartFiltered = (arr, q) => this.withCart(arr).filter(it => !q || this.matchesQuery(it.name, q) || this.matchesQuery(it.desc, q));
+
+  addToCart = (id) => {
+    this.setState(s => ({ cart: { ...s.cart, [id]: (s.cart[id] || 0) + 1 } }));
+  };
+
+  removeFromCart = (id) => {
+    this.setState(s => {
+      const cur = s.cart[id] || 0;
+      const cart = { ...s.cart };
+      if (cur <= 1) delete cart[id];
+      else cart[id] = cur - 1;
+      return { cart };
+    });
+  };
+
+  clearCart = () => this.setState({ cart: {} });
+
+  buildWhatsappOrderUrl = () => {
+    const entries = Object.entries(this.state.cart);
+    let total = 0;
+    const lines = [];
+    entries.forEach(([id, qty]) => {
+      const found = this.priceCatalog[id];
+      if (found) {
+        total += found.price * qty;
+        lines.push(`${qty}x ${found.name} (${this.fmtEur(found.price * qty)})`);
+      }
+    });
+    let msg = 'Hallo, ik wil graag het volgende bestellen:\n\n';
+    if (lines.length) {
+      msg += lines.join('\n') + '\n\n' + `Totaal: ${this.fmtEur(total)}`;
+    } else {
+      msg += '(bestelling wordt hier ingevuld)';
+    }
+    return 'https://wa.me/31611011673?text=' + encodeURIComponent(msg);
+  };
+
+  broodjesItems = [
+    { id: 'br-rendang', name: 'Broodje Rendang', desc: 'Pittig rundvlees', price: 5.00 },
+    { id: 'br-semur', name: 'Broodje Semur', desc: 'Zoet rundvlees', price: 5.00 },
+    { id: 'br-rica', name: 'Broodje Kip Rica-Rica', desc: 'Pittige kip', price: 4.50 },
+    { id: 'br-kerrie', name: 'Broodje Kip Kerrie', desc: 'Kerrie kip', price: 4.50 },
+    { id: 'br-ei', name: 'Broodje Pittige Ei', desc: 'Pittig ei', price: 4.50 },
+  ];
+
+  snacksItems = [
+    { id: 's-pastei', name: 'Kip Pastei', price: 2.00 },
+    { id: 's-risoles', name: 'Kip Risoles', price: 2.00 },
+    { id: 's-lemper', name: 'Kip Lemper', price: 2.00 },
+    { id: 's-banaan', name: 'Gebakken Banaan', price: 2.00 },
+    { id: 's-sponscake', name: 'Sponscake', price: 2.00 },
+    { id: 's-lumpia', name: 'Kip Lumpia', price: 2.00 },
+    { id: 's-spekkoek', name: 'Spekkoek', price: 2.50 },
+    { id: 's-kuelapis', name: 'Kue Lapis', price: 2.50 },
+  ];
+
+  favorieten = [
+    { src: 'images/kip-sate.jpg', label: 'Kip Sate' },
+    { src: 'images/gado-gado.jpg', label: 'Gado-gado' },
+    { src: 'images/vis-mackerel.jpg', label: 'Vis Makreel' },
+    { src: 'images/kue-lapis.jpg', label: 'Kue Lapis' },
+    { src: 'images/broodje-rica.jpg', label: 'Broodje Rica' },
+    { src: 'images/boontjes.jpg', label: 'Boontjes' },
+    { src: 'images/lodeh.jpg', label: 'Lodeh' },
+    { src: 'images/zoete-kip-kluif.jpg', label: 'Zoete Kip Kluif' },
+    { src: 'images/pastei.jpg', label: 'Kip Pastei' },
+  ];
+
+  componentDidMount() {
+    localStorage.removeItem('ift-dark');
+    const dark = false;
+    document.body.classList.remove('dark');
+    this.setState({ dark, ready: true, page: this.readPageFromHash() });
+    document.addEventListener('click', this.handleDocClick, true);
+    window.addEventListener('hashchange', this.handleHashChange);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleDocClick, true);
+    window.removeEventListener('hashchange', this.handleHashChange);
+  }
+
+  readPageFromHash = () => {
+    const h = window.location.hash.replace('#', '');
+    return this.pages.includes(h) ? h : 'home';
+  };
+
+  handleHashChange = () => {
+    this.setState({ page: this.readPageFromHash(), mobileOpen: false });
+    window.scrollTo(0, 0);
+  };
+
+  navigate = (page) => (e) => {
+    if (e) e.preventDefault();
+    window.location.hash = page;
+    this.setState({ page, mobileOpen: false });
+    window.scrollTo(0, 0);
+  };
+
+
+
+  toggleDark = () => {
+    const next = !this.state.dark;
+    this.setState({ dark: next, themeSpin: true });
+    document.body.classList.toggle('dark', next);
+    clearTimeout(this._spinTimeout);
+    this._spinTimeout = setTimeout(() => this.setState({ themeSpin: false }), 350);
+  };
+
+  toggleMobile = () => {
+    this.setState(s => ({ mobileOpen: !s.mobileOpen }));
+  };
+
+  closeMobile = () => {
+    this.setState({ mobileOpen: false });
+  };
+
+  handleDocClick = (e) => {
+    if (!this.state.mobileOpen) return;
+    if (e.target.closest && (e.target.closest('.mobile-drawer') || e.target.closest('.hamburger'))) return;
+    this.setState({ mobileOpen: false });
+  };
+
+  openCart = (e) => {
+    if (e) e.preventDefault();
+    this.setState({ cartOpen: true });
+  };
+
+  closeCart = (e) => {
+    if (e) e.preventDefault();
+    this.setState({ cartOpen: false });
+  };
+
+  renderVals() {
+    const { dark, mobileOpen, activeTab } = this.state;
+    const q = (this.state.searchQuery || '').trim().toLowerCase();
+
+    const activeStyle = {
+      flexShrink: 0, padding: '9px 18px', borderRadius: '999px',
+      border: '1px solid var(--accent)', cursor: 'pointer', fontSize: '12.5px', fontWeight: 500,
+      background: 'var(--accent)', color: '#fff',
+      whiteSpace: 'nowrap', fontFamily: 'inherit', transition: 'all 0.2s',
+      letterSpacing: '0.02em',
+    };
+    const inactiveStyle = {
+      flexShrink: 0, padding: '9px 18px', borderRadius: '999px',
+      border: '1px solid var(--border)', cursor: 'pointer', fontSize: '12.5px', fontWeight: 500,
+      background: 'transparent', color: 'var(--text-muted)',
+      whiteSpace: 'nowrap', fontFamily: 'inherit', transition: 'all 0.2s',
+      letterSpacing: '0.02em',
+    };
+    const allActiveStyle = {
+      flexShrink: 0, padding: '12px 26px', borderRadius: '999px',
+      border: '2px solid var(--accent)', cursor: 'pointer', fontSize: '13.5px', fontWeight: 700,
+      background: 'var(--accent)', color: '#fff',
+      whiteSpace: 'nowrap', fontFamily: 'inherit', transition: 'all 0.2s',
+      letterSpacing: '0.04em', textTransform: 'uppercase',
+    };
+    const allInactiveStyle = {
+      flexShrink: 0, padding: '12px 26px', borderRadius: '999px',
+      border: '2px solid var(--accent)', cursor: 'pointer', fontSize: '13.5px', fontWeight: 700,
+      background: 'transparent', color: 'var(--accent)',
+      whiteSpace: 'nowrap', fontFamily: 'inherit', transition: 'all 0.2s',
+      letterSpacing: '0.04em', textTransform: 'uppercase',
+    };
+
+    const mobileDrawerStyle = {
+      position: 'fixed', top: 'var(--nav-h)', left: 0, right: 0, zIndex: 199,
+      background: 'var(--bg)', borderBottom: '1px solid var(--border)',
+      padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: '22px',
+      transform: mobileOpen ? 'translateY(0)' : 'translateY(-16px)',
+      opacity: mobileOpen ? 1 : 0,
+      maxHeight: mobileOpen ? '400px' : '0px',
+      overflow: 'hidden',
+      paddingTop: mobileOpen ? '28px' : '0px',
+      paddingBottom: mobileOpen ? '28px' : '0px',
+      pointerEvents: mobileOpen ? 'auto' : 'none',
+      transition: 'transform 0.32s cubic-bezier(0.32,0.72,0,1), opacity 0.26s ease, max-height 0.32s cubic-bezier(0.32,0.72,0,1), padding 0.32s ease',
+    };
+
+    const darkIconStyle = {
+      transform: this.state.themeSpin ? (dark ? 'rotate(180deg) scale(1.15)' : 'rotate(-180deg) scale(1.15)') : 'rotate(0deg) scale(1)',
+    };
+
+    const cartOpen = this.state.cartOpen;
+    const cartBackdropStyle = {
+      position: 'fixed', inset: 0, zIndex: 298,
+      background: 'rgba(10,6,3,0.45)',
+      opacity: cartOpen ? 1 : 0,
+      pointerEvents: cartOpen ? 'auto' : 'none',
+      transition: 'opacity 0.3s ease',
+    };
+    const cartDrawerStyle = {
+      position: 'fixed', top: 0, right: 0, bottom: 0, zIndex: 299,
+      width: 'min(420px, 88vw)',
+      background: 'var(--bg)',
+      borderLeft: '1px solid var(--border)',
+      boxShadow: '-12px 0 40px rgba(0,0,0,0.18)',
+      display: 'flex', flexDirection: 'column',
+      transform: cartOpen ? 'translateX(0)' : 'translateX(100%)',
+      transition: 'transform 0.32s cubic-bezier(0.32,0.72,0,1)',
+      pointerEvents: cartOpen ? 'auto' : 'none',
+    };
+
+    const tabs = this.tabs.map(t => {
+      const isAll = t.id === 'all';
+      const isActive = t.id === activeTab;
+      return {
+        ...t,
+        onClick: () => this.setState({ activeTab: t.id }),
+        btnStyle: isAll ? (isActive ? allActiveStyle : allInactiveStyle) : (isActive ? activeStyle : inactiveStyle),
+        btnClass: isActive ? 'tab-btn-active' : 'tab-btn',
+      };
+    });
+
+    return {
+      dark,
+      navHome: this.navigate('home'),
+      navFavorieten: this.navigate('favorieten'),
+      navMenu: this.navigate('menu'),
+      navOverOns: this.navigate('over-ons'),
+      navContact: this.navigate('contact'),
+      openCart: this.openCart,
+      closeCart: this.closeCart,
+      closeCartBackdrop: this.closeCart,
+      navMenuFromCart: (e) => { this.closeCart(); this.navigate('menu')(e); },
+      cartBackdropStyle,
+      cartDrawerStyle,
+      showHome: this.state.page === 'home',
+      showFavorieten: this.state.page === 'favorieten',
+      showMenuPage: this.state.page === 'menu',
+      showOverOns: this.state.page === 'over-ons',
+      showContact: this.state.page === 'contact',
+      darkIcon: dark ? '☀' : '☽',
+      darkIconStyle,
+      toggleDark: this.toggleDark,
+      mobileDrawerStyle,
+      mobileOpen,
+      toggleMobile: this.toggleMobile,
+      closeMobile: this.closeMobile,
+      tabs,
+      showRames: (activeTab === 'rames' || activeTab === 'all') && (!q || 'rames klein'.includes(q) || 'rames groot'.includes(q)),
+      showRamesVeg: (activeTab === 'rames-veg' || activeTab === 'all') && (!q || 'vegetarisch klein'.includes(q) || 'vegetarisch groot'.includes(q)),
+      showVlees: (activeTab === 'vlees' || activeTab === 'all') && (!q || this.vleesItems.some(it => this.matchesQuery(it.name, q) || this.matchesQuery(it.desc, q))),
+      showKipVis: (activeTab === 'kip-vis' || activeTab === 'all') && (!q || this.kipVisItems.concat(this.kipVisExtras).some(it => this.matchesQuery(it.name, q) || this.matchesQuery(it.desc, q))),
+      showGroenten: (activeTab === 'groenten' || activeTab === 'all') && (!q || this.groentenItems.some(it => this.matchesQuery(it.name, q) || this.matchesQuery(it.desc, q))),
+      showBijgerechten: (activeTab === 'bijgerechten' || activeTab === 'all') && (!q || this.bijgerechtenItems.some(it => this.matchesQuery(it.name, q) || this.matchesQuery(it.desc, q))),
+      showBroodjes: (activeTab === 'broodjes' || activeTab === 'all') && (!q || this.broodjesItems.some(it => this.matchesQuery(it.name, q) || this.matchesQuery(it.desc, q))),
+      showSnacks: (activeTab === 'snacks' || activeTab === 'all') && (!q || this.snacksItems.some(it => this.matchesQuery(it.name, q))),
+      showDranken: (activeTab === 'dranken' || activeTab === 'all') && (!q || 'es cendol'.includes(q)),
+      noResults: !!q && !(
+        'rames klein'.includes(q) || 'rames groot'.includes(q) || 'vegetarisch klein'.includes(q) || 'vegetarisch groot'.includes(q) || 'es cendol'.includes(q) ||
+        this.vleesItems.concat(this.kipVisItems, this.kipVisExtras, this.groentenItems, this.bijgerechtenItems, this.broodjesItems, this.snacksItems).some(it => this.matchesQuery(it.name, q) || this.matchesQuery(it.desc, q))
+      ),
+      searchQuery: this.state.searchQuery,
+      onSearchChange: this.onSearchChange,
+      calcCategories: [],
+      calcItems: [],
+      ramesKlein: this.itemHandlers('rames-klein'),
+      ramesGroot: this.itemHandlers('rames-groot'),
+      ramesVegKlein: this.itemHandlers('rames-veg-klein'),
+      ramesVegGroot: this.itemHandlers('rames-veg-groot'),
+      cendol: this.itemHandlers('d-cendol'),
+      cartLines: Object.keys(this.state.cart).map(id => {
+        const item = this.priceCatalog[id];
+        if (!item) return null;
+        const qty = this.state.cart[id];
+        return {
+          id, name: item.name, qty,
+          lineTotal: this.fmtEur(item.price * qty),
+          onAdd: () => this.addToCart(id),
+          onRemove: () => this.removeFromCart(id),
+        };
+      }).filter(Boolean),
+      cartTotal: this.fmtEur(Object.entries(this.state.cart).reduce((sum, [id, qty]) => {
+        const found = this.priceCatalog[id];
+        return found ? sum + found.price * qty : sum;
+      }, 0)),
+      cartCount: Object.values(this.state.cart).reduce((a, b) => a + b, 0),
+      hasCartItems: Object.keys(this.state.cart).length > 0,
+      clearCart: this.clearCart,
+      whatsappOrderUrl: this.buildWhatsappOrderUrl(),
+      vleesItems: this.withCartFiltered(this.vleesItems, q),
+      kipVisItems: this.withCartFiltered(this.kipVisItems, q),
+      kipVisExtras: this.withCartFiltered(this.kipVisExtras, q),
+      groentenItems: this.withCartFiltered(this.groentenItems, q),
+      bijgerechtenItems: this.withCartFiltered(this.bijgerechtenItems, q),
+      broodjesItems: this.withCartFiltered(this.broodjesItems, q),
+      snacksItems: this.withCartFiltered(this.snacksItems, q),
+      favorieten: this.state.ready ? this.favorieten : [],
+    };
+  }
+}
+</script>
+</body>
+</html>
