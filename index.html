@@ -71,6 +71,43 @@
     "hasMenuSection": [
       {
         "@type": "MenuSection",
+        "name": "Nieuw Binnen",
+        "description": "Zelfgemaakte sambals om mee naar huis te nemen",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Sambal Roa Tumaratas Manado",
+            "description": "Pittige sambal met gerookte roa (vliegende vis), een specialiteit uit Manado, Noord-Sulawesi.",
+            "offers": {
+              "@type": "Offer",
+              "price": "7.50",
+              "priceCurrency": "EUR"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Sambal Cakalang Tumaratas Manado",
+            "description": "Pittige sambal met gerookte cakalang (skipjacktonijn), een geliefde specialiteit uit Manado en Gorontalo.",
+            "offers": {
+              "@type": "Offer",
+              "price": "7.50",
+              "priceCurrency": "EUR"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Sambal Cumi Jakarta",
+            "description": "Pittige sambal met malse stukjes inktvis, bereid volgens een huisrecept in Jakarta-stijl.",
+            "offers": {
+              "@type": "Offer",
+              "price": "7.50",
+              "priceCurrency": "EUR"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "MenuSection",
         "name": "Rames Menu",
         "hasMenuItem": [
           {
@@ -581,6 +618,7 @@
 <nav style="position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);background:var(--bg);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 clamp(16px,4vw,56px);gap:24px;transition:background 0.3s,border-color 0.3s;">
   <a href="#home" onClick="{{ navHome }}" class="brand-logo" style="display:flex;align-items:center;flex-shrink:0;"><img src="images/food-truck-icon.png" alt="Indonesia Food Truck" style="height:40px;width:auto;object-fit:contain;" /></a>
   <div class="nav-links" style="display:flex;gap:28px;flex:1;justify-content:center;">
+    <a href="#nieuw-binnen" onClick="{{ navNieuwBinnen }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Nieuw Binnen</a>
     <a href="#favorieten" onClick="{{ navFavorieten }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Favorieten</a>
     <a href="#menu" onClick="{{ navMenu }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Menu</a>
     <a href="#over-ons" onClick="{{ navOverOns }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Over Ons</a>
@@ -604,6 +642,7 @@
 
 <!-- MOBILE NAV -->
 <div class="mobile-drawer" style="{{ mobileDrawerStyle }}">
+    <a href="#nieuw-binnen" onClick="{{ navNieuwBinnen }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Nieuw Binnen</a>
     <a href="#favorieten" onClick="{{ navFavorieten }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Favorieten</a>
     <a href="#menu" onClick="{{ navMenu }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Menu</a>
     <a href="#over-ons" onClick="{{ navOverOns }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Over Ons</a>
@@ -664,6 +703,40 @@
     <p style="font-size:17px;line-height:1.9;color:var(--text-muted);margin-bottom:24px;text-wrap:pretty;">Vega Maki groeide op omringd door de geuren en smaken van de Indonesische keuken. Thuis koken was meer dan een dagelijkse bezigheid — het was een traditie, een verbinding met haar roots, een taal van liefde en gastvrijheid die van generatie op generatie werd doorgegeven.</p>
     <p style="font-size:17px;line-height:1.9;color:var(--text-muted);margin-bottom:24px;text-wrap:pretty;">Wat begon als een passie voor het koken van authentieke familiegerechten, groeide met de jaren uit tot iets groters. Vrienden, familie en kennissen waren keer op keer enthousiast over Vega's kookkunsten, en hun aanmoedigingen gaven haar de moed om de stap te wagen.</p>
     <p style="font-size:17px;line-height:1.9;color:var(--text-muted);text-wrap:pretty;">Indonesia Food Truck is de belichaming van die droom. Gesponsord door Het Javaanse Smulpaleis en gedreven door hartstocht, brengt Vega elke maandag de authentieke smaken van Indonesië naar de straten van Deventer — met trots, met toewijding, en met een groot hart.</p>
+  </div>
+</section>
+
+<!-- NIEUW BINNEN -->
+<section id="nieuw-binnen" style="padding:clamp(72px,10vw,128px) clamp(20px,5vw,80px);background:var(--bg-alt);display:{{ nieuwBinnenDisplay }};">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:56px;">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:16px;">Nieuw in het assortiment</p>
+      <h2 style="font-family:'Cormorant Garant',serif;font-size:clamp(38px,6vw,60px);font-weight:600;line-height:1.1;color:var(--text);">Nieuw Binnen</h2>
+      <p style="font-size:15px;color:var(--text-muted);margin-top:14px;">Onze zelfgemaakte sambals, nu ook om mee naar huis te nemen</p>
+    </div>
+    <div class="menu-grid-3">
+      <sc-for list="{{ nieuwBinnenItems }}" as="item" hint-placeholder-count="3">
+        <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:background 0.3s;">
+          <div style="aspect-ratio:1/1;background:var(--bg-alt);">
+            <img src="{{ item.image }}" alt="{{ item.name }}" style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async">
+          </div>
+          <div style="padding:24px;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;">
+              <h3 style="font-family:'Cormorant Garant',serif;font-size:21px;font-weight:600;color:var(--text);">{{ item.name }}</h3>
+              <span style="font-family:'Cormorant Garant',serif;font-size:20px;font-weight:600;color:var(--accent);white-space:nowrap;">{{ item.priceLabel }}</span>
+            </div>
+            <p style="font-size:14px;line-height:1.6;color:var(--text-muted);margin-bottom:18px;">{{ item.desc }}</p>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
+                <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
+                <span style="font-size:14px;font-weight:600;color:var(--text);min-width:16px;text-align:center;">{{ item.qty }}</span>
+              </sc-if>
+              <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
   </div>
 </section>
 
@@ -1189,6 +1262,7 @@
         <p style="font-size:13px;color:var(--text-muted);">Gesponsord door: Het Javaanse Smulpaleis</p>
       </div>
       <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center;">
+        <a href="#nieuw-binnen" onClick="{{ navNieuwBinnen }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Nieuw Binnen</a>
         <a href="#over-ons" onClick="{{ navOverOns }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Over Ons</a>
         <a href="#menu" onClick="{{ navMenu }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Menu</a>
         <a href="#favorieten" onClick="{{ navFavorieten }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Favorieten</a>
@@ -1206,7 +1280,7 @@
 class Component extends DCLogic {
   state = { dark: false, mobileOpen: false, activeTab: 'all', ready: false, cart: {}, page: 'home', searchQuery: '', cartOpen: false };
 
-  pages = ['home', 'favorieten', 'menu', 'over-ons', 'contact'];
+  pages = ['home', 'nieuw-binnen', 'favorieten', 'menu', 'over-ons', 'contact'];
   // calculator page removed — cart now lives on the Menu page
 
   tabs = [
@@ -1294,6 +1368,9 @@ class Component extends DCLogic {
     's-spekkoek': { name: 'Spekkoek', price: 2.50 },
     's-kuelapis': { name: 'Kue Lapis', price: 2.50 },
     'd-cendol': { name: 'Es Cendol', price: 3.50 },
+    'na-sambal-roa': { name: 'Sambal Roa Tumaratas Manado', price: 7.50 },
+    'na-sambal-cakalang': { name: 'Sambal Cakalang Tumaratas Manado', price: 7.50 },
+    'na-sambal-cumi': { name: 'Sambal Cumi Jakarta', price: 7.50 },
   };
 
   fmtEur = (n) => '€' + n.toFixed(2).replace('.', ',');
@@ -1368,6 +1445,12 @@ class Component extends DCLogic {
     { id: 's-lumpia', name: 'Kip Lumpia', price: 2.00 },
     { id: 's-spekkoek', name: 'Spekkoek', price: 2.50 },
     { id: 's-kuelapis', name: 'Kue Lapis', price: 2.50 },
+  ];
+
+  nieuwBinnenItems = [
+    { id: 'na-sambal-roa', name: 'Sambal Roa Tumaratas Manado', desc: 'Pittige sambal met gerookte roa (vliegende vis), een specialiteit uit Manado, Noord-Sulawesi. Traditioneel gegeten bij bubur Manado of gebakken bananen.', price: 7.50, image: 'images/sambal-roa.jpg' },
+    { id: 'na-sambal-cakalang', name: 'Sambal Cakalang Tumaratas Manado', desc: 'Pittige sambal met gerookte cakalang (skipjacktonijn), een geliefde specialiteit uit Manado en Gorontalo.', price: 7.50, image: 'images/sambal-cakalang.jpg' },
+    { id: 'na-sambal-cumi', name: 'Sambal Cumi Jakarta', desc: 'Pittige sambal met malse stukjes inktvis, bereid volgens een huisrecept in Jakarta-stijl.', price: 7.50, image: 'images/sambal-cumi.jpg' },
   ];
 
   favorieten = [
@@ -1532,6 +1615,7 @@ class Component extends DCLogic {
     return {
       dark,
       navHome: this.navigate('home'),
+      navNieuwBinnen: this.navigate('nieuw-binnen'),
       navFavorieten: this.navigate('favorieten'),
       navMenu: this.navigate('menu'),
       navOverOns: this.navigate('over-ons'),
@@ -1543,6 +1627,7 @@ class Component extends DCLogic {
       cartBackdropStyle,
       cartDrawerStyle,
       homeDisplay: this.state.page === 'home' ? 'flex' : 'none',
+      nieuwBinnenDisplay: this.state.page === 'nieuw-binnen' ? 'block' : 'none',
       favorietenDisplay: this.state.page === 'favorieten' ? 'block' : 'none',
       menuDisplay: this.state.page === 'menu' ? 'block' : 'none',
       overOnsDisplay: this.state.page === 'over-ons' ? 'block' : 'none',
@@ -1603,6 +1688,7 @@ class Component extends DCLogic {
       bijgerechtenItems: this.withCartFiltered(this.bijgerechtenItems, q),
       broodjesItems: this.withCartFiltered(this.broodjesItems, q),
       snacksItems: this.withCartFiltered(this.snacksItems, q),
+      nieuwBinnenItems: this.withCart(this.nieuwBinnenItems),
       favorieten: this.state.ready ? this.favorieten : [],
     };
   }
