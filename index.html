@@ -80,7 +80,7 @@
             "description": "Pittige sambal met gerookte roa (vliegende vis), een specialiteit uit Manado, Noord-Sulawesi.",
             "offers": {
               "@type": "Offer",
-              "price": "7.50",
+              "price": "6.00",
               "priceCurrency": "EUR"
             }
           },
@@ -90,7 +90,7 @@
             "description": "Pittige sambal met gerookte cakalang (skipjacktonijn), een geliefde specialiteit uit Manado en Gorontalo.",
             "offers": {
               "@type": "Offer",
-              "price": "7.50",
+              "price": "7.00",
               "priceCurrency": "EUR"
             }
           },
@@ -100,7 +100,7 @@
             "description": "Pittige sambal met malse stukjes inktvis, bereid volgens een huisrecept in Jakarta-stijl.",
             "offers": {
               "@type": "Offer",
-              "price": "7.50",
+              "price": "7.00",
               "priceCurrency": "EUR"
             }
           }
@@ -717,8 +717,8 @@
     <div class="menu-grid-3">
       <sc-for list="{{ nieuwBinnenItems }}" as="item" hint-placeholder-count="3">
         <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:background 0.3s;">
-          <div style="aspect-ratio:1/1;background:var(--bg-alt);">
-            <img src="{{ item.image }}" alt="{{ item.name }}" style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async">
+          <div style="aspect-ratio:3/4;background:var(--bg-alt);">
+            <img src="{{ item.image }}" alt="{{ item.name }}" style="width:100%;height:100%;object-fit:contain;" loading="lazy" decoding="async">
           </div>
           <div style="padding:24px;">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;">
@@ -1368,9 +1368,9 @@ class Component extends DCLogic {
     's-spekkoek': { name: 'Spekkoek', price: 2.50 },
     's-kuelapis': { name: 'Kue Lapis', price: 2.50 },
     'd-cendol': { name: 'Es Cendol', price: 3.50 },
-    'na-sambal-roa': { name: 'Sambal Roa Tumaratas Manado', price: 7.50 },
-    'na-sambal-cakalang': { name: 'Sambal Cakalang Tumaratas Manado', price: 7.50 },
-    'na-sambal-cumi': { name: 'Sambal Cumi Jakarta', price: 7.50 },
+    'na-sambal-roa': { name: 'Sambal Roa Tumaratas Manado', price: 6.00 },
+    'na-sambal-cakalang': { name: 'Sambal Cakalang Tumaratas Manado', price: 7.00 },
+    'na-sambal-cumi': { name: 'Sambal Cumi Jakarta', price: 7.00 },
   };
 
   fmtEur = (n) => '€' + n.toFixed(2).replace('.', ',');
@@ -1448,9 +1448,9 @@ class Component extends DCLogic {
   ];
 
   nieuwBinnenItems = [
-    { id: 'na-sambal-roa', name: 'Sambal Roa Tumaratas Manado', desc: 'Pittige sambal met gerookte roa (vliegende vis), een specialiteit uit Manado, Noord-Sulawesi. Traditioneel gegeten bij bubur Manado of gebakken bananen.', price: 7.50, image: 'images/sambal-roa.jpg' },
-    { id: 'na-sambal-cakalang', name: 'Sambal Cakalang Tumaratas Manado', desc: 'Pittige sambal met gerookte cakalang (skipjacktonijn), een geliefde specialiteit uit Manado en Gorontalo.', price: 7.50, image: 'images/sambal-cakalang.jpg' },
-    { id: 'na-sambal-cumi', name: 'Sambal Cumi Jakarta', desc: 'Pittige sambal met malse stukjes inktvis, bereid volgens een huisrecept in Jakarta-stijl.', price: 7.50, image: 'images/sambal-cumi.jpg' },
+    { id: 'na-sambal-roa', name: 'Sambal Roa Tumaratas Manado', desc: 'Pittige sambal met gerookte roa (vliegende vis), een specialiteit uit Manado, Noord-Sulawesi. Traditioneel gegeten bij bubur Manado of gebakken bananen.', price: 6.00, image: 'images/sambal-roa.jpg' },
+    { id: 'na-sambal-cakalang', name: 'Sambal Cakalang Tumaratas Manado', desc: 'Pittige sambal met gerookte cakalang (skipjacktonijn), een geliefde specialiteit uit Manado en Gorontalo.', price: 7.00, image: 'images/sambal-cakalang.jpg' },
+    { id: 'na-sambal-cumi', name: 'Sambal Cumi Jakarta', desc: 'Pittige sambal met malse stukjes inktvis, bereid volgens een huisrecept in Jakarta-stijl.', price: 7.00, image: 'images/sambal-cumi.jpg' },
   ];
 
   favorieten = [
