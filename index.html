@@ -679,7 +679,7 @@
     <p style="font-size:clamp(15px,2vw,18px);color:rgba(240,232,220,0.70);max-width:520px;margin:0 auto 44px;line-height:1.8;text-wrap:pretty;">Smaakvolle gerechten uit de rijke Indonesische keuken, vers bereid voor u.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:56px;">
       <a href="#menu" onClick="{{ navMenu }}" class="cta-solid" style="display:inline-flex;align-items:center;background:var(--accent);color:#fff;padding:14px 38px;border-radius:14px;corner-shape:squircle;font-size:14px;font-weight:500;letter-spacing:0.04em;">Bekijk het Menu</a>
-      <a href="#menu" onClick="{{ navMenu }}" class="cta-outline" style="display:inline-flex;align-items:center;border:1px solid rgba(240,232,220,0.32);color:rgba(240,232,220,0.80);padding:14px 38px;border-radius:14px;corner-shape:squircle;font-size:14px;font-weight:500;letter-spacing:0.04em;">Reserveer &amp; haal op</a>
+      <a href="#cart" onClick="{{ openCart }}" class="cta-outline" style="display:inline-flex;align-items:center;border:1px solid rgba(240,232,220,0.32);color:rgba(240,232,220,0.80);padding:14px 38px;border-radius:14px;corner-shape:squircle;font-size:14px;font-weight:500;letter-spacing:0.04em;">Reserveer &amp; haal op</a>
     </div>
     <div style="display:flex;gap:clamp(20px,5vw,52px);justify-content:center;flex-wrap:wrap;padding-top:32px;border-top:1px solid rgba(240,232,220,0.12);">
       <div style="text-align:center;">
@@ -1519,11 +1519,20 @@ class Component extends DCLogic {
     this.setState({ dark, ready: true, page: this.readPageFromHash() });
     document.addEventListener('click', this.handleDocClick, true);
     window.addEventListener('hashchange', this.handleHashChange);
+
+    this._todayKey = this.dateKey(new Date());
+    this._dateCheckInterval = setInterval(() => {
+      const key = this.dateKey(new Date());
+      if (key === this._todayKey) return;
+      this._todayKey = key;
+      this.setState(s => (s.pickupDate && s.pickupDate < key) ? { pickupDate: null, pickupTime: null } : {});
+    }, 60000);
   }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleDocClick, true);
     window.removeEventListener('hashchange', this.handleHashChange);
+    clearInterval(this._dateCheckInterval);
   }
 
   readPageFromHash = () => {
