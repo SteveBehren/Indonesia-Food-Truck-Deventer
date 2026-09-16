@@ -641,6 +641,7 @@
     <a href="#nieuw-binnen" onClick="{{ navNieuwBinnen }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Nieuw Binnen</a>
     <a href="#favorieten" onClick="{{ navFavorieten }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Favorieten</a>
     <a href="#menu" onClick="{{ navMenu }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Menu</a>
+    <a href="#boeken" onClick="{{ navBoeken }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Boek Ons</a>
     <a href="#over-ons" onClick="{{ navOverOns }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Over Ons</a>
     <a href="#contact" onClick="{{ navContact }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Contact</a>
   </div>
@@ -665,6 +666,7 @@
     <a href="#nieuw-binnen" onClick="{{ navNieuwBinnen }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Nieuw Binnen</a>
     <a href="#favorieten" onClick="{{ navFavorieten }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Favorieten</a>
     <a href="#menu" onClick="{{ navMenu }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Menu</a>
+    <a href="#boeken" onClick="{{ navBoeken }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Boek Ons</a>
     <a href="#over-ons" onClick="{{ navOverOns }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Over Ons</a>
     <a href="#contact" onClick="{{ navContact }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Contact</a>
 </div>
@@ -679,7 +681,7 @@
     <p style="font-size:clamp(15px,2vw,18px);color:rgba(240,232,220,0.70);max-width:520px;margin:0 auto 44px;line-height:1.8;text-wrap:pretty;">Smaakvolle gerechten uit de rijke Indonesische keuken, vers bereid voor u.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:56px;">
       <a href="#menu" onClick="{{ navMenu }}" class="cta-solid" style="display:inline-flex;align-items:center;background:var(--accent);color:#fff;padding:14px 38px;border-radius:14px;corner-shape:squircle;font-size:14px;font-weight:500;letter-spacing:0.04em;">Bekijk het Menu</a>
-      <a href="#cart" onClick="{{ openCart }}" class="cta-outline" style="display:inline-flex;align-items:center;border:1px solid rgba(240,232,220,0.32);color:rgba(240,232,220,0.80);padding:14px 38px;border-radius:14px;corner-shape:squircle;font-size:14px;font-weight:500;letter-spacing:0.04em;">Reserveer &amp; haal op</a>
+      <a href="#boeken" onClick="{{ navBoeken }}" class="cta-outline" style="display:inline-flex;align-items:center;border:1px solid rgba(240,232,220,0.32);color:rgba(240,232,220,0.80);padding:14px 38px;border-radius:14px;corner-shape:squircle;font-size:14px;font-weight:500;letter-spacing:0.04em;">Boek Ons Voor Uw Evenement</a>
     </div>
     <div style="display:flex;gap:clamp(20px,5vw,52px);justify-content:center;flex-wrap:wrap;padding-top:32px;border-top:1px solid rgba(240,232,220,0.12);">
       <div style="text-align:center;">
@@ -1141,6 +1143,65 @@
   </div>
 </section>
 
+<!-- BOEK ONS -->
+<section id="boeken" style="padding:clamp(72px,10vw,128px) clamp(20px,5vw,80px);background:var(--bg-alt);display:{{ boekenDisplay }};">
+  <div style="max-width:720px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:56px;">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:16px;">Catering &amp; Evenementen</p>
+      <h2 style="font-family:'Cormorant Garant',serif;font-size:clamp(38px,6vw,60px);font-weight:600;line-height:1.1;color:var(--text);margin-bottom:20px;">Boek Ons Voor Uw Evenement</h2>
+      <p style="font-size:16px;line-height:1.8;color:var(--text-muted);">Of het nu een bedrijfsfeest, bruiloft, verjaardag of festival is — Indonesia Food Truck brengt de authentieke smaken van Indonesië naar uw evenement. Vul onderstaand formulier in en wij nemen zo snel mogelijk contact met u op via WhatsApp.</p>
+    </div>
+
+    <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:20px;corner-shape:squircle;padding:clamp(28px,5vw,44px);transition:background 0.3s;">
+      <p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:14px;">Type evenement</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px;">
+        <sc-for list="{{ eventTypeOptions }}" as="opt" hint-placeholder-count="5">
+          <button onClick="{{ opt.onSelect }}" style="{{ opt.chipStyle }}">{{ opt.label }}</button>
+        </sc-for>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+        <div>
+          <label style="display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Datum evenement</label>
+          <input type="date" value="{{ bookingDate }}" min="{{ bookingDateMin }}" onChange="{{ onBookingDateChange }}" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;" />
+        </div>
+        <div>
+          <label style="display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Verwachte gasten</label>
+          <input type="number" min="1" value="{{ bookingGuests }}" onChange="{{ onBookingGuestsChange }}" placeholder="80" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;" />
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <label style="display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Locatie / Stad</label>
+        <input type="text" value="{{ bookingLocation }}" onChange="{{ onBookingLocationChange }}" placeholder="Bijv. Deventer" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;" />
+      </div>
+
+      <div style="height:1px;background:var(--border);margin:28px 0;"></div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+        <div>
+          <label style="display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Uw naam</label>
+          <input type="text" value="{{ bookingName }}" onChange="{{ onBookingNameChange }}" placeholder="Jan de Vries" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;" />
+        </div>
+        <div>
+          <label style="display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Telefoon / WhatsApp</label>
+          <input type="tel" value="{{ bookingPhone }}" onChange="{{ onBookingPhoneChange }}" placeholder="+31 6 12345678" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;" />
+        </div>
+      </div>
+
+      <div style="margin-bottom:28px;">
+        <label style="display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Opmerkingen (optioneel)</label>
+        <textarea value="{{ bookingNotes }}" onChange="{{ onBookingNotesChange }}" placeholder="Dieetwensen, budget, of andere details…" rows="3" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;resize:vertical;"></textarea>
+      </div>
+
+      <sc-if value="{{ !bookingReady }}" hint-placeholder-val="{{ true }}">
+        <p style="font-size:12px;color:var(--text-muted);text-align:center;margin-bottom:12px;">Vul alle verplichte velden in om de aanvraag te versturen</p>
+      </sc-if>
+      <a href="{{ bookingWhatsappUrl }}" onClick="{{ bookingSubmitClick }}" target="_blank" rel="noopener noreferrer" class="cta-solid" style="display:block;text-align:center;background:var(--accent);color:#fff;padding:16px;border-radius:14px;corner-shape:squircle;font-size:14px;font-weight:600;letter-spacing:0.03em;{{ bookingDisabledStyle }}">Verstuur Aanvraag via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
 <!-- WINKELWAGEN -->
 <!-- WINKELWAGEN OVERLAY -->
 <div onClick="{{ closeCartBackdrop }}" style="{{ cartBackdropStyle }}"></div>
@@ -1267,6 +1328,7 @@
         <a href="#nieuw-binnen" onClick="{{ navNieuwBinnen }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Nieuw Binnen</a>
         <a href="#over-ons" onClick="{{ navOverOns }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Over Ons</a>
         <a href="#menu" onClick="{{ navMenu }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Menu</a>
+        <a href="#boeken" onClick="{{ navBoeken }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Boek Ons</a>
         <a href="#favorieten" onClick="{{ navFavorieten }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Favorieten</a>
         <a href="#contact" onClick="{{ navContact }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Contact</a>
       </div>
@@ -1280,9 +1342,13 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { dark: false, mobileOpen: false, activeTab: 'all', ready: false, cart: {}, page: 'home', searchQuery: '', cartOpen: false, pickupDate: null, pickupTime: null };
+  state = {
+    dark: false, mobileOpen: false, activeTab: 'all', ready: false, cart: {}, page: 'home', searchQuery: '', cartOpen: false,
+    pickupDate: null, pickupTime: null,
+    bookingType: '', bookingDate: '', bookingGuests: '', bookingLocation: '', bookingName: '', bookingPhone: '', bookingNotes: '',
+  };
 
-  pages = ['home', 'favorieten', 'menu', 'over-ons', 'contact'];
+  pages = ['home', 'favorieten', 'menu', 'boeken', 'over-ons', 'contact'];
   // calculator page removed — cart now lives on the Menu page
 
   tabs = [
@@ -1445,6 +1511,45 @@ class Component extends DCLogic {
 
   whatsappClick = (e) => {
     if (!(this.state.pickupDate && this.state.pickupTime)) e.preventDefault();
+  };
+
+  EVENT_TYPES = ['Festival / Markt', 'Bedrijfsevenement', 'Bruiloft', 'Verjaardagsfeest', 'Anders'];
+
+  selectBookingType = (t) => () => this.setState({ bookingType: t });
+  onBookingField = (field) => (e) => this.setState({ [field]: e.target.value });
+
+  isBookingReady = () => {
+    const s = this.state;
+    return !!(s.bookingType && s.bookingDate && s.bookingGuests && s.bookingLocation && s.bookingName && s.bookingPhone);
+  };
+
+  buildBookingWhatsappUrl = () => {
+    const s = this.state;
+    let dateLabel = s.bookingDate;
+    if (s.bookingDate) {
+      const [y, m, dd] = s.bookingDate.split('-').map(Number);
+      const d = new Date(y, m - 1, dd);
+      dateLabel = `${this.DUTCH_DAYS[d.getDay()]} ${d.getDate()} ${this.DUTCH_MONTHS[d.getMonth()]} ${y}`;
+    }
+    const lines = [
+      'Hallo, ik wil graag Indonesia Food Truck boeken voor een evenement:',
+      '',
+      `Type evenement: ${s.bookingType || '-'}`,
+      `Datum: ${dateLabel || '-'}`,
+      `Aantal gasten: ${s.bookingGuests || '-'}`,
+      `Locatie: ${s.bookingLocation || '-'}`,
+      '',
+      `Naam: ${s.bookingName || '-'}`,
+      `Telefoon: ${s.bookingPhone || '-'}`,
+    ];
+    if (s.bookingNotes) {
+      lines.push('', `Opmerkingen: ${s.bookingNotes}`);
+    }
+    return 'https://wa.me/31611011673?text=' + encodeURIComponent(lines.join('\n'));
+  };
+
+  bookingSubmitClick = (e) => {
+    if (!this.isBookingReady()) e.preventDefault();
   };
 
   buildWhatsappOrderUrl = () => {
@@ -1653,6 +1758,16 @@ class Component extends DCLogic {
       border: '1px solid var(--border)', cursor: 'pointer', fontSize: '13px', fontWeight: 500,
       background: 'var(--bg-card)', color: 'var(--text)', fontFamily: 'inherit', textAlign: 'center',
     };
+    const eventTypeActive = {
+      padding: '16px 18px', borderRadius: '14px', textAlign: 'left',
+      border: '1px solid var(--accent)', cursor: 'pointer', fontSize: '14px', fontWeight: 600,
+      background: 'var(--accent)', color: '#fff', fontFamily: 'inherit',
+    };
+    const eventTypeInactive = {
+      padding: '16px 18px', borderRadius: '14px', textAlign: 'left',
+      border: '1px solid var(--border)', cursor: 'pointer', fontSize: '14px', fontWeight: 500,
+      background: 'var(--bg-card)', color: 'var(--text)', fontFamily: 'inherit',
+    };
 
     const mobileDrawerStyle = {
       position: 'fixed', top: 'var(--nav-h)', left: 0, right: 0, zIndex: 199,
@@ -1709,6 +1824,7 @@ class Component extends DCLogic {
       navNieuwBinnen: this.scrollToNieuwBinnen,
       navFavorieten: this.navigate('favorieten'),
       navMenu: this.navigate('menu'),
+      navBoeken: this.navigate('boeken'),
       navOverOns: this.navigate('over-ons'),
       navContact: this.navigate('contact'),
       openCart: this.openCart,
@@ -1721,6 +1837,7 @@ class Component extends DCLogic {
       nieuwBinnenDisplay: this.state.page === 'home' ? 'block' : 'none',
       favorietenDisplay: this.state.page === 'favorieten' ? 'block' : 'none',
       menuDisplay: this.state.page === 'menu' ? 'block' : 'none',
+      boekenDisplay: this.state.page === 'boeken' ? 'block' : 'none',
       overOnsDisplay: this.state.page === 'over-ons' ? 'block' : 'none',
       contactDisplay: this.state.page === 'contact' ? 'block' : 'none',
       darkIcon: dark ? '☀' : '☽',
@@ -1792,6 +1909,28 @@ class Component extends DCLogic {
       pickupReady: !!(this.state.pickupDate && this.state.pickupTime),
       whatsappDisabledStyle: (this.state.pickupDate && this.state.pickupTime) ? '' : 'opacity:0.45;pointer-events:none;cursor:not-allowed;',
       whatsappClick: this.whatsappClick,
+      eventTypeOptions: this.EVENT_TYPES.map(t => ({
+        label: t,
+        onSelect: this.selectBookingType(t),
+        chipStyle: this.state.bookingType === t ? eventTypeActive : eventTypeInactive,
+      })),
+      bookingDateMin: this.dateKey(new Date()),
+      bookingDate: this.state.bookingDate,
+      onBookingDateChange: this.onBookingField('bookingDate'),
+      bookingGuests: this.state.bookingGuests,
+      onBookingGuestsChange: this.onBookingField('bookingGuests'),
+      bookingLocation: this.state.bookingLocation,
+      onBookingLocationChange: this.onBookingField('bookingLocation'),
+      bookingName: this.state.bookingName,
+      onBookingNameChange: this.onBookingField('bookingName'),
+      bookingPhone: this.state.bookingPhone,
+      onBookingPhoneChange: this.onBookingField('bookingPhone'),
+      bookingNotes: this.state.bookingNotes,
+      onBookingNotesChange: this.onBookingField('bookingNotes'),
+      bookingReady: this.isBookingReady(),
+      bookingWhatsappUrl: this.buildBookingWhatsappUrl(),
+      bookingSubmitClick: this.bookingSubmitClick,
+      bookingDisabledStyle: this.isBookingReady() ? '' : 'opacity:0.45;pointer-events:none;cursor:not-allowed;',
       vleesItems: this.withCartFiltered(this.vleesItems, q),
       kipVisItems: this.withCartFiltered(this.kipVisItems, q),
       kipVisExtras: this.withCartFiltered(this.kipVisExtras, q),
