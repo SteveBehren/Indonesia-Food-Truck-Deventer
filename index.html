@@ -1680,7 +1680,7 @@ class Component extends DCLogic {
       snacksItems: this.withCartFiltered(this.snacksItems, q),
       nieuwBinnenItems: this.withCart(this.nieuwBinnenItems).map(it => ({
         ...it,
-        frameStyle: it.contain ? 'aspect-ratio:3/4;background:var(--bg-alt);' : 'aspect-ratio:3/5;background:var(--bg-alt);',
+        frameStyle: it.contain ? 'aspect-ratio:3/4;background:var(--bg-alt);' : 'aspect-ratio:5/9;background:var(--bg-alt);',
         imgFit: it.contain ? 'contain' : 'cover',
       })),
       favItems: this.favItems.map(it => ({
