@@ -72,7 +72,7 @@
       {
         "@type": "MenuSection",
         "name": "Nieuw Binnen",
-        "description": "Zelfgemaakte sambals om mee naar huis te nemen",
+        "description": "Zelfgemaakte sambals en Indonesische lekkernijen om mee naar huis te nemen",
         "hasMenuItem": [
           {
             "@type": "MenuItem",
@@ -101,6 +101,26 @@
             "offers": {
               "@type": "Offer",
               "price": "7.00",
+              "priceCurrency": "EUR"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Pempek",
+            "description": "Traditionele vissenkoek uit Palembang, Zuid-Sumatra, gemaakt van vis en tapiocameel. Geserveerd met cuko, een pittig-zure saus van palmsuiker en tamarinde.",
+            "offers": {
+              "@type": "Offer",
+              "price": "8.00",
+              "priceCurrency": "EUR"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Batagor",
+            "description": "Gefrituurde tahu en vissenballetjes, een specialiteit uit Bandung (bakso tahu goreng). Geserveerd met pittig-zoete pindasaus.",
+            "offers": {
+              "@type": "Offer",
+              "price": "8.00",
               "priceCurrency": "EUR"
             }
           }
@@ -712,13 +732,13 @@
     <div style="text-align:center;margin-bottom:56px;">
       <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:16px;">Nieuw in het assortiment</p>
       <h2 style="font-family:'Cormorant Garant',serif;font-size:clamp(38px,6vw,60px);font-weight:600;line-height:1.1;color:var(--text);">Nieuw Binnen</h2>
-      <p style="font-size:15px;color:var(--text-muted);margin-top:14px;">Onze zelfgemaakte sambals, nu ook om mee naar huis te nemen</p>
+      <p style="font-size:15px;color:var(--text-muted);margin-top:14px;">Onze zelfgemaakte sambals en Indonesische lekkernijen, nu ook om mee naar huis te nemen</p>
     </div>
     <div class="menu-grid-3">
       <sc-for list="{{ nieuwBinnenItems }}" as="item" hint-placeholder-count="3">
         <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:20px;corner-shape:squircle;overflow:hidden;transition:background 0.3s;">
-          <div style="aspect-ratio:3/5;background:var(--bg-alt);">
-            <img src="{{ item.image }}" alt="{{ item.name }}" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="lazy" decoding="async">
+          <div style="{{ item.frameStyle }}">
+            <img src="{{ item.image }}" alt="{{ item.name }}" style="width:100%;height:100%;object-fit:{{ item.imgFit }};object-position:center;" loading="lazy" decoding="async">
           </div>
           <div style="padding:24px;">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;">
@@ -1371,6 +1391,8 @@ class Component extends DCLogic {
     'na-sambal-roa': { name: 'Sambal Roa Tumaratas Manado', price: 6.00 },
     'na-sambal-cakalang': { name: 'Sambal Cakalang Tumaratas Manado', price: 7.00 },
     'na-sambal-cumi': { name: 'Sambal Cumi Jakarta', price: 7.00 },
+    'na-pempek': { name: 'Pempek', price: 8.00 },
+    'na-batagor': { name: 'Batagor', price: 8.00 },
   };
 
   fmtEur = (n) => '€' + n.toFixed(2).replace('.', ',');
@@ -1451,6 +1473,8 @@ class Component extends DCLogic {
     { id: 'na-sambal-roa', name: 'Sambal Roa Tumaratas Manado', desc: 'Pittige sambal met gerookte roa (vliegende vis), een specialiteit uit Manado, Noord-Sulawesi. Traditioneel gegeten bij bubur Manado of gebakken bananen.', price: 6.00, image: 'images/sambal-roa.jpg' },
     { id: 'na-sambal-cakalang', name: 'Sambal Cakalang Tumaratas Manado', desc: 'Pittige sambal met gerookte cakalang (skipjacktonijn), een geliefde specialiteit uit Manado en Gorontalo.', price: 7.00, image: 'images/sambal-cakalang.jpg' },
     { id: 'na-sambal-cumi', name: 'Sambal Cumi Jakarta', desc: 'Pittige sambal met malse stukjes inktvis, bereid volgens een huisrecept in Jakarta-stijl.', price: 7.00, image: 'images/sambal-cumi.jpg' },
+    { id: 'na-pempek', name: 'Pempek', desc: 'Traditionele vissenkoek uit Palembang, Zuid-Sumatra, gemaakt van vis en tapiocameel. Geserveerd met cuko, een pittig-zure saus van palmsuiker en tamarinde.', price: 8.00, image: 'images/pempek.jpg', contain: true },
+    { id: 'na-batagor', name: 'Batagor', desc: 'Gefrituurde tahu en vissenballetjes, een specialiteit uit Bandung (bakso tahu goreng). Geserveerd met pittig-zoete pindasaus.', price: 8.00, image: 'images/batagor.jpg', contain: true },
   ];
 
   favorieten = [
@@ -1688,7 +1712,11 @@ class Component extends DCLogic {
       bijgerechtenItems: this.withCartFiltered(this.bijgerechtenItems, q),
       broodjesItems: this.withCartFiltered(this.broodjesItems, q),
       snacksItems: this.withCartFiltered(this.snacksItems, q),
-      nieuwBinnenItems: this.withCart(this.nieuwBinnenItems),
+      nieuwBinnenItems: this.withCart(this.nieuwBinnenItems).map(it => ({
+        ...it,
+        frameStyle: it.contain ? 'aspect-ratio:3/4;background:var(--bg-alt);' : 'aspect-ratio:3/5;background:var(--bg-alt);',
+        imgFit: it.contain ? 'contain' : 'cover',
+      })),
       favorieten: this.state.ready ? this.favorieten : [],
     };
   }
