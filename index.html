@@ -641,7 +641,7 @@
     <a href="#nieuw-binnen" onClick="{{ navNieuwBinnen }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Nieuw Binnen</a>
     <a href="#favorieten" onClick="{{ navFavorieten }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Favorieten</a>
     <a href="#menu" onClick="{{ navMenu }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Menu</a>
-    <a href="#boeken" onClick="{{ navBoeken }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Boek Ons</a>
+    <a href="#boeken" onClick="{{ navBoeken }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Evenementen</a>
     <a href="#over-ons" onClick="{{ navOverOns }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Over Ons</a>
     <a href="#contact" onClick="{{ navContact }}" class="nav-link" style="font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;">Contact</a>
   </div>
@@ -666,7 +666,7 @@
     <a href="#nieuw-binnen" onClick="{{ navNieuwBinnen }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Nieuw Binnen</a>
     <a href="#favorieten" onClick="{{ navFavorieten }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Favorieten</a>
     <a href="#menu" onClick="{{ navMenu }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Menu</a>
-    <a href="#boeken" onClick="{{ navBoeken }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Boek Ons</a>
+    <a href="#boeken" onClick="{{ navBoeken }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Evenementen</a>
     <a href="#over-ons" onClick="{{ navOverOns }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Over Ons</a>
     <a href="#contact" onClick="{{ navContact }}" class="footer-link" style="font-size:22px;font-weight:500;color:var(--text);">Contact</a>
 </div>
@@ -1153,21 +1153,26 @@
     </div>
 
     <div class="info-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:20px;corner-shape:squircle;padding:clamp(28px,5vw,44px);transition:background 0.3s;">
-      <p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:14px;">Type evenement</p>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+        <p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);">Type evenement</p>
+        <sc-if value="{{ hasBookingType }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ clearBookingType }}" style="background:none;border:none;color:var(--text-muted);font-size:12px;text-decoration:underline;cursor:pointer;font-family:inherit;">Wis selectie</button>
+        </sc-if>
+      </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px;">
         <sc-for list="{{ eventTypeOptions }}" as="opt" hint-placeholder-count="5">
           <button onClick="{{ opt.onSelect }}" style="{{ opt.chipStyle }}">{{ opt.label }}</button>
         </sc-for>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+      <div class="menu-grid-2" style="margin-bottom:20px;">
         <div>
           <label style="display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Datum evenement</label>
-          <input type="date" value="{{ bookingDate }}" min="{{ bookingDateMin }}" onChange="{{ onBookingDateChange }}" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;" />
+          <input type="date" value="{{ bookingDate }}" min="{{ bookingDateMin }}" onChange="{{ onBookingDateChange }}" style="width:100%;height:48px;padding:0 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;-webkit-appearance:none;appearance:none;" />
         </div>
         <div>
           <label style="display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Verwachte gasten</label>
-          <input type="number" min="1" value="{{ bookingGuests }}" onChange="{{ onBookingGuestsChange }}" placeholder="80" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;" />
+          <input type="number" min="1" value="{{ bookingGuests }}" onChange="{{ onBookingGuestsChange }}" placeholder="80" style="width:100%;height:48px;padding:0 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;-webkit-appearance:none;appearance:none;" />
         </div>
       </div>
 
@@ -1178,14 +1183,14 @@
 
       <div style="height:1px;background:var(--border);margin:28px 0;"></div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+      <div class="menu-grid-2" style="margin-bottom:20px;">
         <div>
           <label style="display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Uw naam</label>
-          <input type="text" value="{{ bookingName }}" onChange="{{ onBookingNameChange }}" placeholder="Jan de Vries" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;" />
+          <input type="text" value="{{ bookingName }}" onChange="{{ onBookingNameChange }}" placeholder="Jan de Vries" style="width:100%;height:48px;padding:0 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;" />
         </div>
         <div>
           <label style="display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;">Telefoon / WhatsApp</label>
-          <input type="tel" value="{{ bookingPhone }}" onChange="{{ onBookingPhoneChange }}" placeholder="+31 6 12345678" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;" />
+          <input type="tel" value="{{ bookingPhone }}" onChange="{{ onBookingPhoneChange }}" placeholder="+31 6 12345678" style="width:100%;height:48px;padding:0 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit;" />
         </div>
       </div>
 
@@ -1215,11 +1220,13 @@
       <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:24px;">
         <sc-for list="{{ cartLines }}" as="line" hint-placeholder-count="3">
           <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
-            <div style="display:flex;align-items:center;gap:10px;">
-              <button class="icon-btn" onClick="{{ line.onRemove }}" aria-label="Verwijder" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">−</button>
-              <p style="font-size:14px;color:var(--text);">{{ line.qty }}× {{ line.name }}</p>
+            <div style="display:flex;align-items:center;gap:8px;min-width:0;">
+              <button class="icon-btn" onClick="{{ line.onRemove }}" aria-label="Verwijder" style="width:26px;height:26px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">−</button>
+              <span style="font-size:13px;font-weight:600;color:var(--text);min-width:14px;text-align:center;flex-shrink:0;">{{ line.qty }}</span>
+              <button class="icon-btn" onClick="{{ line.onAdd }}" aria-label="Voeg toe" style="width:26px;height:26px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">+</button>
+              <p style="font-size:14px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ line.name }}</p>
             </div>
-            <span style="font-size:14px;font-weight:600;color:var(--text-muted);white-space:nowrap;">{{ line.lineTotal }}</span>
+            <span style="font-size:14px;font-weight:600;color:var(--text-muted);white-space:nowrap;flex-shrink:0;">{{ line.lineTotal }}</span>
           </div>
         </sc-for>
       </div>
@@ -1228,9 +1235,14 @@
         <p style="font-size:16px;font-weight:600;color:var(--text);">Totaal ({{ cartCount }} items)</p>
         <p style="font-family:'Cormorant Garant',serif;font-size:26px;font-weight:600;color:var(--accent);">{{ cartTotal }}</p>
       </div>
-      <button class="footer-link" onClick="{{ clearCart }}" style="display:block;width:100%;text-align:left;background:none;border:none;color:var(--text-muted);font-size:13px;padding:4px 0 8px 0;cursor:pointer;">Bestelling leegmaken</button>
+      <button onClick="{{ clearCart }}" style="display:inline-flex;align-items:center;background:rgba(178,58,42,0.08);border:1px solid rgba(178,58,42,0.28);color:#A8442F;font-size:12px;font-weight:600;padding:8px 14px;border-radius:10px;cursor:pointer;font-family:inherit;margin-bottom:4px;">Bestelling leegmaken</button>
       <div style="height:1px;background:var(--border);margin:20px 0;"></div>
-      <p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:10px;">Ophaaldatum (elke maandag)</p>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);">Ophaaldatum (elke maandag)</p>
+        <sc-if value="{{ hasPickupSelection }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ clearPickupSelection }}" style="background:none;border:none;color:var(--text-muted);font-size:12px;text-decoration:underline;cursor:pointer;font-family:inherit;">Wis selectie</button>
+        </sc-if>
+      </div>
       <div class="tabs-scroll" style="margin-bottom:20px;">
         <sc-for list="{{ mondayOptions }}" as="d" hint-placeholder-count="6">
           <button onClick="{{ d.onSelect }}" style="{{ d.chipStyle }}">{{ d.label }}</button>
@@ -1328,7 +1340,7 @@
         <a href="#nieuw-binnen" onClick="{{ navNieuwBinnen }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Nieuw Binnen</a>
         <a href="#over-ons" onClick="{{ navOverOns }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Over Ons</a>
         <a href="#menu" onClick="{{ navMenu }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Menu</a>
-        <a href="#boeken" onClick="{{ navBoeken }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Boek Ons</a>
+        <a href="#boeken" onClick="{{ navBoeken }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Evenementen</a>
         <a href="#favorieten" onClick="{{ navFavorieten }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Favorieten</a>
         <a href="#contact" onClick="{{ navContact }}" class="footer-link" style="font-size:13px;color:var(--text-muted);">Contact</a>
       </div>
@@ -1506,8 +1518,9 @@ class Component extends DCLogic {
     return out;
   })();
 
-  selectPickupDate = (key) => () => this.setState({ pickupDate: key });
-  selectPickupTime = (time) => () => this.setState({ pickupTime: time });
+  selectPickupDate = (key) => () => this.setState(s => ({ pickupDate: s.pickupDate === key ? null : key }));
+  selectPickupTime = (time) => () => this.setState(s => ({ pickupTime: s.pickupTime === time ? null : time }));
+  clearPickupSelection = () => this.setState({ pickupDate: null, pickupTime: null });
 
   whatsappClick = (e) => {
     if (!(this.state.pickupDate && this.state.pickupTime)) e.preventDefault();
@@ -1515,7 +1528,8 @@ class Component extends DCLogic {
 
   EVENT_TYPES = ['Festival / Markt', 'Bedrijfsevenement', 'Bruiloft', 'Verjaardagsfeest', 'Anders'];
 
-  selectBookingType = (t) => () => this.setState({ bookingType: t });
+  selectBookingType = (t) => () => this.setState(s => ({ bookingType: s.bookingType === t ? '' : t }));
+  clearBookingType = () => this.setState({ bookingType: '' });
   onBookingField = (field) => (e) => this.setState({ [field]: e.target.value });
 
   isBookingReady = () => {
@@ -1907,6 +1921,8 @@ class Component extends DCLogic {
         chipStyle: this.state.pickupTime === t ? timeChipActive : timeChipInactive,
       })),
       pickupReady: !!(this.state.pickupDate && this.state.pickupTime),
+      hasPickupSelection: !!(this.state.pickupDate || this.state.pickupTime),
+      clearPickupSelection: this.clearPickupSelection,
       whatsappDisabledStyle: (this.state.pickupDate && this.state.pickupTime) ? '' : 'opacity:0.45;pointer-events:none;cursor:not-allowed;',
       whatsappClick: this.whatsappClick,
       eventTypeOptions: this.EVENT_TYPES.map(t => ({
@@ -1914,6 +1930,8 @@ class Component extends DCLogic {
         onSelect: this.selectBookingType(t),
         chipStyle: this.state.bookingType === t ? eventTypeActive : eventTypeInactive,
       })),
+      hasBookingType: !!this.state.bookingType,
+      clearBookingType: this.clearBookingType,
       bookingDateMin: this.dateKey(new Date()),
       bookingDate: this.state.bookingDate,
       onBookingDateChange: this.onBookingField('bookingDate'),
