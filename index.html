@@ -592,6 +592,9 @@
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
     .tabs-scroll { display: flex; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; }
     .tabs-scroll::-webkit-scrollbar { display: none; }
+    .qty-input { -moz-appearance: textfield; text-align: center; border: none; background: none; font-family: inherit; padding: 0; }
+    .qty-input::-webkit-inner-spin-button, .qty-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+    .qty-input:focus { outline: none; background: var(--border); border-radius: 4px; }
     @media (max-width: 1024px) { .menu-grid-3 { grid-template-columns: repeat(2,1fr); } .contact-grid { grid-template-columns: 1fr; } }
     @media (max-width: 700px) { .fav-grid { grid-template-columns: repeat(2,1fr); gap: 12px; } .menu-grid-2 { grid-template-columns: 1fr; } .menu-grid-3 { grid-template-columns: 1fr; } }
     @media (max-width: 768px) { .nav-links { display: none !important; } .hamburger { display: flex !important; } }
@@ -723,7 +726,7 @@
             <div style="display:flex;align-items:center;gap:10px;">
               <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
                 <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
-                <span style="font-size:14px;font-weight:600;color:var(--text);min-width:16px;text-align:center;">{{ item.qty }}</span>
+                <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ item.qty }}" onChange="{{ item.onQtyChange }}" onBlur="{{ item.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:22px;font-size:14px;font-weight:600;color:var(--text);" />
               </sc-if>
               <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
             </div>
@@ -783,7 +786,7 @@
             <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
               <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
                 <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
-                <span style="font-size:13px;font-weight:600;color:var(--text);min-width:14px;text-align:center;">{{ item.qty }}</span>
+                <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ item.qty }}" onChange="{{ item.onQtyChange }}" onBlur="{{ item.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:20px;font-size:13px;font-weight:600;color:var(--text);" />
               </sc-if>
               <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
             </div>
@@ -843,7 +846,7 @@
             <div style="display:flex;align-items:center;gap:10px;">
               <sc-if value="{{ ramesKlein.inCart }}" hint-placeholder-val="{{ false }}">
                 <button class="icon-btn" onClick="{{ ramesKlein.onRemove }}" aria-label="Verwijder" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
-                <span style="font-size:15px;font-weight:600;color:var(--text);min-width:18px;text-align:center;">{{ ramesKlein.qty }}</span>
+                <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ ramesKlein.qty }}" onChange="{{ ramesKlein.onQtyChange }}" onBlur="{{ ramesKlein.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:24px;font-size:15px;font-weight:600;color:var(--text);" />
               </sc-if>
               <button class="icon-btn" onClick="{{ ramesKlein.onAdd }}" aria-label="Voeg toe" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
             </div>
@@ -870,7 +873,7 @@
             <div style="display:flex;align-items:center;gap:10px;">
               <sc-if value="{{ ramesGroot.inCart }}" hint-placeholder-val="{{ false }}">
                 <button class="icon-btn" onClick="{{ ramesGroot.onRemove }}" aria-label="Verwijder" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
-                <span style="font-size:15px;font-weight:600;color:var(--text);min-width:18px;text-align:center;">{{ ramesGroot.qty }}</span>
+                <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ ramesGroot.qty }}" onChange="{{ ramesGroot.onQtyChange }}" onBlur="{{ ramesGroot.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:24px;font-size:15px;font-weight:600;color:var(--text);" />
               </sc-if>
               <button class="icon-btn" onClick="{{ ramesGroot.onAdd }}" aria-label="Voeg toe" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
             </div>
@@ -901,7 +904,7 @@
             <div style="display:flex;align-items:center;gap:10px;">
               <sc-if value="{{ ramesVegKlein.inCart }}" hint-placeholder-val="{{ false }}">
                 <button class="icon-btn" onClick="{{ ramesVegKlein.onRemove }}" aria-label="Verwijder" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
-                <span style="font-size:15px;font-weight:600;color:var(--text);min-width:18px;text-align:center;">{{ ramesVegKlein.qty }}</span>
+                <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ ramesVegKlein.qty }}" onChange="{{ ramesVegKlein.onQtyChange }}" onBlur="{{ ramesVegKlein.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:24px;font-size:15px;font-weight:600;color:var(--text);" />
               </sc-if>
               <button class="icon-btn" onClick="{{ ramesVegKlein.onAdd }}" aria-label="Voeg toe" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
             </div>
@@ -923,7 +926,7 @@
             <div style="display:flex;align-items:center;gap:10px;">
               <sc-if value="{{ ramesVegGroot.inCart }}" hint-placeholder-val="{{ false }}">
                 <button class="icon-btn" onClick="{{ ramesVegGroot.onRemove }}" aria-label="Verwijder" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
-                <span style="font-size:15px;font-weight:600;color:var(--text);min-width:18px;text-align:center;">{{ ramesVegGroot.qty }}</span>
+                <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ ramesVegGroot.qty }}" onChange="{{ ramesVegGroot.onQtyChange }}" onBlur="{{ ramesVegGroot.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:24px;font-size:15px;font-weight:600;color:var(--text);" />
               </sc-if>
               <button class="icon-btn" onClick="{{ ramesVegGroot.onAdd }}" aria-label="Voeg toe" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
             </div>
@@ -946,7 +949,7 @@
               <div style="display:flex;align-items:center;gap:10px;">
                 <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
                   <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
-                  <span style="font-size:14px;font-weight:600;color:var(--text);min-width:16px;text-align:center;">{{ item.qty }}</span>
+                  <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ item.qty }}" onChange="{{ item.onQtyChange }}" onBlur="{{ item.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:22px;font-size:14px;font-weight:600;color:var(--text);" />
                 </sc-if>
                 <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
               </div>
@@ -970,7 +973,7 @@
               <div style="display:flex;align-items:center;gap:10px;">
                 <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
                   <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
-                  <span style="font-size:14px;font-weight:600;color:var(--text);min-width:16px;text-align:center;">{{ item.qty }}</span>
+                  <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ item.qty }}" onChange="{{ item.onQtyChange }}" onBlur="{{ item.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:22px;font-size:14px;font-weight:600;color:var(--text);" />
                 </sc-if>
                 <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
               </div>
@@ -995,7 +998,7 @@
                   <div style="display:flex;align-items:center;gap:8px;">
                     <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
                       <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
-                      <span style="font-size:13px;font-weight:600;color:var(--text);min-width:14px;text-align:center;">{{ item.qty }}</span>
+                      <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ item.qty }}" onChange="{{ item.onQtyChange }}" onBlur="{{ item.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:20px;font-size:13px;font-weight:600;color:var(--text);" />
                     </sc-if>
                     <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
                   </div>
@@ -1021,7 +1024,7 @@
               <div style="display:flex;align-items:center;gap:10px;">
                 <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
                   <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
-                  <span style="font-size:14px;font-weight:600;color:var(--text);min-width:16px;text-align:center;">{{ item.qty }}</span>
+                  <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ item.qty }}" onChange="{{ item.onQtyChange }}" onBlur="{{ item.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:22px;font-size:14px;font-weight:600;color:var(--text);" />
                 </sc-if>
                 <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
               </div>
@@ -1048,7 +1051,7 @@
                 <div style="display:flex;align-items:center;gap:8px;">
                   <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
                     <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
-                    <span style="font-size:13px;font-weight:600;color:var(--text);min-width:14px;text-align:center;">{{ item.qty }}</span>
+                    <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ item.qty }}" onChange="{{ item.onQtyChange }}" onBlur="{{ item.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:20px;font-size:13px;font-weight:600;color:var(--text);" />
                   </sc-if>
                   <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
                 </div>
@@ -1077,7 +1080,7 @@
                 <div style="display:flex;align-items:center;gap:8px;">
                   <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
                     <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
-                    <span style="font-size:13px;font-weight:600;color:var(--text);min-width:14px;text-align:center;">{{ item.qty }}</span>
+                    <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ item.qty }}" onChange="{{ item.onQtyChange }}" onBlur="{{ item.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:20px;font-size:13px;font-weight:600;color:var(--text);" />
                   </sc-if>
                   <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
                 </div>
@@ -1103,7 +1106,7 @@
                 <div style="display:flex;align-items:center;gap:8px;">
                   <sc-if value="{{ item.inCart }}" hint-placeholder-val="{{ false }}">
                     <button class="icon-btn" onClick="{{ item.onRemove }}" aria-label="Verwijder" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
-                    <span style="font-size:13px;font-weight:600;color:var(--text);min-width:14px;text-align:center;">{{ item.qty }}</span>
+                    <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ item.qty }}" onChange="{{ item.onQtyChange }}" onBlur="{{ item.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:20px;font-size:13px;font-weight:600;color:var(--text);" />
                   </sc-if>
                   <button class="icon-btn" onClick="{{ item.onAdd }}" aria-label="Voeg toe" style="width:28px;height:28px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
                 </div>
@@ -1130,7 +1133,7 @@
               <div style="display:flex;align-items:center;gap:10px;">
                 <sc-if value="{{ cendol.inCart }}" hint-placeholder-val="{{ false }}">
                   <button class="icon-btn" onClick="{{ cendol.onRemove }}" aria-label="Verwijder" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">−</button>
-                  <span style="font-size:14px;font-weight:600;color:var(--text);min-width:16px;text-align:center;">{{ cendol.qty }}</span>
+                  <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ cendol.qty }}" onChange="{{ cendol.onQtyChange }}" onBlur="{{ cendol.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:22px;font-size:14px;font-weight:600;color:var(--text);" />
                 </sc-if>
                 <button class="icon-btn" onClick="{{ cendol.onAdd }}" aria-label="Voeg toe" style="width:30px;height:30px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;">+</button>
               </div>
@@ -1222,7 +1225,7 @@
           <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
             <div style="display:flex;align-items:center;gap:8px;min-width:0;">
               <button class="icon-btn" onClick="{{ line.onRemove }}" aria-label="Verwijder" style="width:26px;height:26px;border-radius:50%;border:1px solid var(--border);background:none;color:var(--text);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">−</button>
-              <span style="font-size:13px;font-weight:600;color:var(--text);min-width:14px;text-align:center;flex-shrink:0;">{{ line.qty }}</span>
+              <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" step="1" class="qty-input" value="{{ line.qty }}" onChange="{{ line.onQtyChange }}" onBlur="{{ line.onQtyBlur }}" onFocus="{{ selectQtyOnFocus }}" style="width:20px;font-size:13px;font-weight:600;color:var(--text);flex-shrink:0;" />
               <button class="icon-btn" onClick="{{ line.onAdd }}" aria-label="Voeg toe" style="width:26px;height:26px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">+</button>
               <p style="font-size:14px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ line.name }}</p>
             </div>
@@ -1459,11 +1462,32 @@ class Component extends DCLogic {
 
   cartQty = (id) => this.state.cart[id] || 0;
 
+  updateQty = (id, raw) => {
+    const trimmed = String(raw).trim();
+    if (trimmed === '') return;
+    let n = parseInt(trimmed, 10);
+    if (isNaN(n) || n < 0) n = 0;
+    this.setState(s => {
+      const cart = { ...s.cart };
+      if (n === 0) delete cart[id];
+      else cart[id] = n;
+      return { cart };
+    });
+  };
+
+  onQtyBlur = (id) => (e) => {
+    if (String(e.target.value).trim() === '') this.updateQty(id, '0');
+  };
+
+  selectQtyOnFocus = (e) => e.target.select();
+
   itemHandlers = (id) => ({
     qty: this.cartQty(id),
     inCart: this.cartQty(id) > 0,
     onAdd: () => this.addToCart(id),
     onRemove: () => this.removeFromCart(id),
+    onQtyChange: (e) => this.updateQty(id, e.target.value),
+    onQtyBlur: this.onQtyBlur(id),
   });
 
   withCart = (arr) => arr.map(it => ({ ...it, priceLabel: this.fmtEur(it.price), ...this.itemHandlers(it.id) }));
@@ -1842,6 +1866,7 @@ class Component extends DCLogic {
       navOverOns: this.navigate('over-ons'),
       navContact: this.navigate('contact'),
       openCart: this.openCart,
+      selectQtyOnFocus: this.selectQtyOnFocus,
       closeCart: this.closeCart,
       closeCartBackdrop: this.closeCart,
       navMenuFromCart: (e) => { this.closeCart(); this.navigate('menu')(e); },
@@ -1893,6 +1918,8 @@ class Component extends DCLogic {
           lineTotal: this.fmtEur(item.price * qty),
           onAdd: () => this.addToCart(id),
           onRemove: () => this.removeFromCart(id),
+          onQtyChange: (e) => this.updateQty(id, e.target.value),
+          onQtyBlur: this.onQtyBlur(id),
         };
       }).filter(Boolean),
       cartTotal: this.fmtEur(Object.entries(this.state.cart).reduce((sum, [id, qty]) => {
